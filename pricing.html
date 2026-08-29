@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing — Qdine | India's Intelligent Restaurant Platform</title>
+<meta name="description" content="Simple, transparent pricing in Indian Rupees. Start free, scale as you grow. No hidden fees. GST-ready billing, UPI support, and AI-powered analytics included."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#59605e",
+                    "outline-variant": "#bec9c1",
+                    "primary-container": "#0a714e",
+                    "primary-fixed-dim": "#81d8ad",
+                    "inverse-primary": "#81d8ad",
+                    "inverse-surface": "#1a1c1e",
+                    "background": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary": "#00563a",
+                    "surface-variant": "#d3e4fe",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-container": "#9af2c6",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-surface": "#0b1c30",
+                    "on-background": "#0b1c30",
+                    "surface-dim": "#cbdbf5",
+                    "outline": "#6f7a72",
+                    "surface": "#f8f9ff",
+                    "on-surface-variant": "#3f4943",
+                    "on-secondary-container": "#5d6463"
+                },
+                fontFamily: {
+                    "display": ["Plus Jakarta Sans"],
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Inter"]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #f8f9ff;
+        color: #0b1c30;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #0a714e 0%, #00563a 50%, #004d32 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .pricing-card {
+        background: #ffffff;
+        border: 1px solid rgba(190, 201, 193, 0.25);
+        border-radius: 24px;
+        overflow: hidden;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    }
+    .pricing-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px -15px rgba(0, 86, 58, 0.1);
+    }
+
+    .pricing-card-hero {
+        background: #0a714e;
+        border: none;
+        border-radius: 24px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    }
+    .pricing-card-hero:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 30px 80px -15px rgba(10, 113, 78, 0.35);
+    }
+
+    .toggle-container {
+        background: #ffffff;
+        border: 1px solid rgba(190, 201, 193, 0.3);
+        border-radius: 100px;
+        padding: 4px;
+        display: inline-flex;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .toggle-btn {
+        padding: 8px 24px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        background: transparent;
+        color: #3f4943;
+    }
+    .toggle-btn.active {
+        background: #0a714e;
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(10, 113, 78, 0.2);
+    }
+
+    .faq-item {
+        background: #ffffff;
+        border: 1px solid rgba(190, 201, 193, 0.2);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+    }
+    .faq-item:hover {
+        box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .faq-trigger {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        width: 100%;
+        border: none;
+        background: transparent;
+        text-align: left;
+    }
+    .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+        padding: 0 24px;
+    }
+    .faq-item.open .faq-content {
+        max-height: 200px;
+        padding: 0 24px 20px;
+    }
+    .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+    }
+    .faq-icon {
+        transition: transform 0.3s ease;
+    }
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 border-b border-white/20 bg-white/80 backdrop-blur-xl shadow-sm transition-all duration-300" id="mainNav">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center h-16 lg:h-20">
+        <a class="flex items-center group" href="index.html">
+            <img src="images/qdine-logo.jpg" alt="Qdine" class="h-10 w-10 rounded-xl shadow-sm group-hover:scale-105 transition-transform object-cover"/>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-on-surface-variant hover:text-primary transition-colors text-[15px] font-medium" href="index.html">Platform</a>
+            <a class="text-on-surface font-semibold text-[15px] border-b-2 border-primary pb-0.5" href="pricing.html">Pricing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors text-[15px] font-medium" href="how-it-works.html">How It Works</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <a class="hidden md:block text-primary font-semibold text-[15px] hover:text-primary/80 transition-colors" href="#">Log in</a>
+            <a class="bg-primary-container hover:bg-[#086042] text-white px-6 py-2.5 rounded-full font-semibold text-[14px] transition-all duration-200 shadow-sm hover:shadow-lg active:scale-95" href="#">Start Free Trial</a>
+        </div>
+    </div>
+</nav>
+
+<main class="pt-28 lg:pt-40 pb-24 relative overflow-hidden">
+    <!-- Background accents -->
+    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/4 rounded-full blur-[100px] -z-10"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[50%] bg-surface-variant/20 rounded-full blur-[80px] -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <!-- ============================================ -->
+        <!-- HEADER -->
+        <!-- ============================================ -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+            <p class="text-[13px] font-semibold text-primary-container uppercase tracking-[0.15em] mb-5">Pricing</p>
+            <h1 class="text-[36px] md:text-[52px] font-extrabold leading-[1.08] tracking-tight mb-6">
+                Simple pricing.<br/>
+                <span class="text-on-surface-variant font-semibold">Extraordinary value.</span>
+            </h1>
+            <p class="text-[17px] text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-10">
+                Every plan includes AI Analyst, digital QR menus, and real-time analytics. No hidden fees. No per-transaction charges. Just one predictable monthly price.
+            </p>
+            <!-- Toggle -->
+            <div class="toggle-container" id="billingToggle">
+                <button class="toggle-btn active" data-period="monthly" onclick="switchPlan('monthly')">Monthly</button>
+                <button class="toggle-btn" data-period="annual" onclick="switchPlan('annual')">
+                    Annual <span class="text-[11px] font-bold ml-1 text-primary-container bg-primary-container/10 px-1.5 py-0.5 rounded annual-badge hidden">Save 20%</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- PRICING CARDS -->
+        <!-- ============================================ -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-32 reveal-on-scroll" style="transition-delay: 150ms;">
+            
+            <!-- STARTER -->
+            <div class="pricing-card p-8 flex flex-col">
+                <div class="mb-8 border-b border-gray-100 pb-6">
+                    <h3 class="text-[22px] font-bold text-on-surface mb-2">Starter</h3>
+                    <p class="text-[14px] text-on-surface-variant mb-6 min-h-[40px] leading-relaxed">
+                        Perfect for single-location cafés and small restaurants just getting started.
+                    </p>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-[40px] font-extrabold text-on-surface price-value" data-monthly="₹999" data-annual="₹799">₹999</span>
+                        <span class="text-[14px] text-on-surface-variant font-medium">/month</span>
+                    </div>
+                </div>
+                <ul class="space-y-4 mb-8 flex-grow">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">1 Restaurant Location</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">Up to 20 Tables</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">QR Digital Menu</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">Basic AI Analyst (10 queries/day)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">Inventory Management</span>
+                    </li>
+                    <li class="flex items-start gap-3 opacity-40">
+                        <span class="material-symbols-outlined text-outline text-[20px] mt-0.5">remove</span>
+                        <span class="text-[14px] text-on-surface-variant">Multi-location support</span>
+                    </li>
+                </ul>
+                <button class="w-full py-3.5 px-4 rounded-full bg-gray-50 hover:bg-gray-100 text-on-surface font-semibold text-[14px] transition-colors border border-gray-200">
+                    Start Free Trial
+                </button>
+            </div>
+
+            <!-- PROFESSIONAL (HERO) -->
+            <div class="pricing-card-hero p-8 flex flex-col md:-translate-y-3">
+                <!-- Ambient glow -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[60px] pointer-events-none"></div>
+                
+                <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">
+                    Most Popular
+                </div>
+                <div class="mb-8 border-b border-white/15 pb-6 relative z-10">
+                    <h3 class="text-[22px] font-bold text-white mb-2">Professional</h3>
+                    <p class="text-[14px] text-white/70 mb-6 min-h-[40px] leading-relaxed">
+                        The complete toolkit for growing restaurants that demand intelligence.
+                    </p>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-[40px] font-extrabold text-white price-value" data-monthly="₹2,499" data-annual="₹1,999">₹2,499</span>
+                        <span class="text-[14px] text-white/60 font-medium">/month</span>
+                    </div>
+                </div>
+                <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-on-primary-container text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="text-[14px] text-white">Up to 3 Locations</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-on-primary-container text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="text-[14px] text-white">Unlimited Tables</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-on-primary-container text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="text-[14px] text-white">Unlimited AI Analyst Queries</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-on-primary-container text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="text-[14px] text-white">Advanced Inventory + Photo Upload</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-on-primary-container text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="text-[14px] text-white">Staff Management & Permissions</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-on-primary-container text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="text-[14px] text-white">Priority 24/7 Support</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-on-primary-container text-[20px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="text-[14px] text-white">GST-Ready Billing</span>
+                    </li>
+                </ul>
+                <button class="w-full py-3.5 px-4 rounded-full bg-white hover:bg-gray-50 text-primary-container font-semibold text-[14px] transition-colors shadow-sm relative z-10">
+                    Start Free Trial
+                </button>
+            </div>
+
+            <!-- ENTERPRISE -->
+            <div class="pricing-card p-8 flex flex-col">
+                <div class="mb-8 border-b border-gray-100 pb-6">
+                    <h3 class="text-[22px] font-bold text-on-surface mb-2">Enterprise</h3>
+                    <p class="text-[14px] text-on-surface-variant mb-6 min-h-[40px] leading-relaxed">
+                        Custom solutions for restaurant chains and hospitality groups across India.
+                    </p>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-[36px] font-extrabold text-on-surface">Custom</span>
+                    </div>
+                </div>
+                <ul class="space-y-4 mb-8 flex-grow">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">Unlimited Locations</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">Custom API Integrations</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">Dedicated Account Manager</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">White-label Options</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">On-premise Training</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary-container text-[20px] mt-0.5">check_circle</span>
+                        <span class="text-[14px] text-on-surface">SLA Guarantee</span>
+                    </li>
+                </ul>
+                <button class="w-full py-3.5 px-4 rounded-full bg-transparent hover:bg-gray-50 text-on-surface font-semibold text-[14px] transition-colors border border-gray-200 hover:border-primary hover:text-primary">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- COMPARE FEATURES -->
+        <!-- ============================================ -->
+        <div class="max-w-5xl mx-auto mb-32 reveal-on-scroll">
+            <div class="text-center mb-12">
+                <h2 class="text-[28px] md:text-[36px] font-extrabold tracking-tight mb-4">Compare every detail.</h2>
+                <p class="text-[16px] text-on-surface-variant">Everything is included. Here's the breakdown.</p>
+            </div>
+            <div class="overflow-x-auto bg-white rounded-2xl border border-gray-100 shadow-sm">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-gray-100">
+                            <th class="py-5 px-6 text-[15px] font-bold text-on-surface w-2/5 bg-white sticky left-0">Feature</th>
+                            <th class="py-5 px-6 text-[15px] font-bold text-on-surface text-center w-1/5">Starter</th>
+                            <th class="py-5 px-6 text-[15px] font-bold text-primary text-center w-1/5 bg-primary/3">Professional</th>
+                            <th class="py-5 px-6 text-[15px] font-bold text-on-surface text-center w-1/5">Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-[14px]">
+                        <!-- Core -->
+                        <tr class="bg-gray-50/50">
+                            <td class="py-3 px-6 font-bold text-on-surface-variant uppercase text-[12px] tracking-wider sticky left-0" colspan="4">Core Platform</td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">Locations</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">1</td>
+                            <td class="py-4 px-6 text-center font-semibold text-primary bg-primary/3">Up to 3</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">Tables</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">Up to 20</td>
+                            <td class="py-4 px-6 text-center font-semibold text-primary bg-primary/3">Unlimited</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">QR Digital Menu</td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                            <td class="py-4 px-6 text-center bg-primary/3"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                        </tr>
+                        <!-- Intelligence -->
+                        <tr class="bg-gray-50/50">
+                            <td class="py-3 px-6 font-bold text-on-surface-variant uppercase text-[12px] tracking-wider sticky left-0" colspan="4">Intelligence</td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">AI Analyst</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">10 queries/day</td>
+                            <td class="py-4 px-6 text-center font-semibold text-primary bg-primary/3">Unlimited</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">Unlimited + Custom</td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">Sales Analytics</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">Basic</td>
+                            <td class="py-4 px-6 text-center font-semibold text-primary bg-primary/3">Advanced</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">Custom Reports</td>
+                        </tr>
+                        <!-- Operations -->
+                        <tr class="bg-gray-50/50">
+                            <td class="py-3 px-6 font-bold text-on-surface-variant uppercase text-[12px] tracking-wider sticky left-0" colspan="4">Operations</td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">Inventory + Stock Alerts</td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                            <td class="py-4 px-6 text-center bg-primary/3"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">Instant Photo Upload</td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-outline text-[20px]">close</span></td>
+                            <td class="py-4 px-6 text-center bg-primary/3"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">Staff Management</td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-outline text-[20px]">close</span></td>
+                            <td class="py-4 px-6 text-center bg-primary/3"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">GST-Ready Billing</td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                            <td class="py-4 px-6 text-center bg-primary/3"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                            <td class="py-4 px-6 text-center"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span></td>
+                        </tr>
+                        <!-- Support -->
+                        <tr class="bg-gray-50/50">
+                            <td class="py-3 px-6 font-bold text-on-surface-variant uppercase text-[12px] tracking-wider sticky left-0" colspan="4">Support</td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-gray-50/30 transition-colors">
+                            <td class="py-4 px-6 text-on-surface bg-white sticky left-0">Support Channel</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">Email</td>
+                            <td class="py-4 px-6 text-center font-semibold text-primary bg-primary/3">24/7 Priority</td>
+                            <td class="py-4 px-6 text-center text-on-surface-variant">Dedicated Manager</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- FAQ -->
+        <!-- ============================================ -->
+        <div class="max-w-3xl mx-auto mb-20 reveal-on-scroll">
+            <div class="text-center mb-12">
+                <h2 class="text-[28px] md:text-[36px] font-extrabold tracking-tight mb-4">Questions? We've got answers.</h2>
+            </div>
+            <div class="space-y-4" id="faqContainer">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span class="text-[16px] font-bold text-on-surface">Is there a free trial?</span>
+                        <span class="material-symbols-outlined text-on-surface-variant faq-icon">add</span>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-on-surface-variant text-[14px] leading-relaxed">
+                            Yes — every plan comes with a 14-day free trial. No credit card required. Set up your restaurant in 15 minutes and experience the full platform. If you're not convinced, you don't pay a thing.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span class="text-[16px] font-bold text-on-surface">Does Qdine support GST billing?</span>
+                        <span class="material-symbols-outlined text-on-surface-variant faq-icon">add</span>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-on-surface-variant text-[14px] leading-relaxed">
+                            Absolutely. Qdine is built for Indian compliance from day one. All invoices and billing statements are GST-ready with proper GSTIN support, tax breakdowns, and export-ready formats for your CA.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span class="text-[16px] font-bold text-on-surface">Can I switch plans later?</span>
+                        <span class="material-symbols-outlined text-on-surface-variant faq-icon">add</span>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-on-surface-variant text-[14px] leading-relaxed">
+                            Of course. Upgrade or downgrade anytime from your dashboard. Changes are prorated — you only pay the difference. No lock-in contracts, ever.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span class="text-[16px] font-bold text-on-surface">Do I need special hardware?</span>
+                        <span class="material-symbols-outlined text-on-surface-variant faq-icon">add</span>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-on-surface-variant text-[14px] leading-relaxed">
+                            No. Qdine is 100% cloud-based and works in any modern browser — tablet, laptop, or phone. Your customers scan QR codes with their own phones. No POS hardware, no installation, no maintenance.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span class="text-[16px] font-bold text-on-surface">Are there any per-transaction fees?</span>
+                        <span class="material-symbols-outlined text-on-surface-variant faq-icon">add</span>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-on-surface-variant text-[14px] leading-relaxed">
+                            Zero. None. Qdine charges a flat monthly subscription — no per-order fees, no per-table fees, no revenue sharing. Your margins are yours to keep.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- CTA -->
+        <!-- ============================================ -->
+        <div class="text-center py-16 reveal-on-scroll">
+            <h2 class="text-[28px] md:text-[36px] font-extrabold tracking-tight mb-6">
+                Still thinking?<br/>
+                <span class="text-on-surface-variant font-semibold">Your competitors aren't.</span>
+            </h2>
+            <p class="text-[16px] text-on-surface-variant mb-8 max-w-xl mx-auto">
+                Start your free trial today. 15 minutes to setup. Zero risk.
+            </p>
+            <a class="inline-flex items-center gap-2 bg-primary-container hover:bg-[#086042] text-white px-10 py-4 rounded-full font-semibold text-[16px] transition-all duration-300 shadow-lg shadow-primary-container/20 group" href="#">
+                Start Free Trial
+                <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-100 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-12">
+            <div class="col-span-2">
+                <div class="flex items-center gap-2 mb-5">
+                    <img src="images/qdine-logo.jpg" alt="Qdine" class="h-9 w-9 rounded-lg shadow-sm object-cover"/>
+                </div>
+                <p class="text-on-surface-variant text-[14px] leading-relaxed max-w-xs mb-4">
+                    India's most intelligent restaurant management platform. Built with precision, designed for hospitality.
+                </p>
+                <p class="text-[12px] text-on-surface-variant/60">Made with ❤️ in India</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-on-surface text-[13px] mb-4 uppercase tracking-wider">Product</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="index.html">Features</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="pricing.html">Pricing</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Security</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-on-surface text-[13px] mb-4 uppercase tracking-wider">Resources</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Blog</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Guides</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Help Center</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-on-surface text-[13px] mb-4 uppercase tracking-wider">Company</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">About Us</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Careers</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-on-surface-variant text-[13px]">© 2025 Qdine Restaurant Systems Pvt. Ltd. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-[13px]" href="#">Privacy</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-[13px]" href="#">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Scroll Reveal
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal-on-scroll');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // Nav
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md', 'bg-white/95');
+                nav.classList.remove('bg-white/80', 'shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md', 'bg-white/95');
+                nav.classList.add('bg-white/80', 'shadow-sm');
+            }
+        });
+    });
+
+    // Billing Toggle
+    function switchPlan(period) {
+        const btns = document.querySelectorAll('.toggle-btn');
+        btns.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.period === period);
+        });
+        
+        const badges = document.querySelectorAll('.annual-badge');
+        badges.forEach(b => b.classList.toggle('hidden', period === 'monthly'));
+
+        const prices = document.querySelectorAll('.price-value');
+        prices.forEach(p => {
+            p.textContent = period === 'annual' ? p.dataset.annual : p.dataset.monthly;
+        });
+    }
+
+    // FAQ Accordion
+    function toggleFaq(trigger) {
+        const item = trigger.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        
+        // Open clicked (if was closed)
+        if (!isOpen) {
+            item.classList.add('open');
+        }
+    }
+</script>
+</body>
+</html>

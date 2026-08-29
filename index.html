@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Qdine — India's #1 Intelligent Restaurant Management System</title>
+<meta name="description" content="Qdine is India's most intelligent restaurant management platform. AI-powered table management, inventory, digital menus, and analytics — all in one beautiful system."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#59605e",
+                    "outline-variant": "#bec9c1",
+                    "primary-container": "#0a714e",
+                    "primary-fixed-dim": "#81d8ad",
+                    "inverse-primary": "#81d8ad",
+                    "inverse-surface": "#1a1c1e",
+                    "background": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "primary": "#00563a",
+                    "surface-variant": "#d3e4fe",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-container": "#9af2c6",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-surface": "#0b1c30",
+                    "on-background": "#0b1c30",
+                    "surface-dim": "#cbdbf5",
+                    "outline": "#6f7a72",
+                    "surface": "#f8f9ff",
+                    "on-surface-variant": "#3f4943",
+                    "on-secondary-container": "#5d6463"
+                },
+                fontFamily: {
+                    "display": ["Plus Jakarta Sans"],
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Inter"]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #f8f9ff;
+        color: #0b1c30;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #0a714e 0%, #00563a 50%, #004d32 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-gold {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .device-frame {
+        background: #1a1c1e;
+        border-radius: 20px;
+        padding: 8px;
+        box-shadow: 
+            0 50px 100px -20px rgba(0, 86, 58, 0.15),
+            0 30px 60px -10px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .device-frame img {
+        border-radius: 12px;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .phone-frame {
+        background: #1a1c1e;
+        border-radius: 32px;
+        padding: 8px;
+        box-shadow: 
+            0 40px 80px -20px rgba(0, 86, 58, 0.2),
+            0 20px 40px -10px rgba(0, 0, 0, 0.12);
+    }
+    .phone-frame img {
+        border-radius: 24px;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .stat-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-card {
+        background: #ffffff;
+        border: 1px solid rgba(190, 201, 193, 0.2);
+        border-radius: 24px;
+        overflow: hidden;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    }
+    .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px -15px rgba(0, 86, 58, 0.12);
+    }
+
+    .hero-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(10, 113, 78, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(-2deg); }
+        50% { transform: translateY(-12px) rotate(-1deg); }
+    }
+    .float-animation {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse-ring {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.5); opacity: 0; }
+    }
+    .pulse-ring {
+        animation: pulse-ring 2s ease-out infinite;
+    }
+
+    .section-spacer {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    @media (max-width: 768px) {
+        .section-spacer {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 border-b border-white/20 bg-white/80 backdrop-blur-xl shadow-sm transition-all duration-300" id="mainNav">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center h-16 lg:h-20">
+        <!-- Brand -->
+        <a class="flex items-center group" href="index.html">
+            <img src="images/qdine-logo.jpg" alt="Qdine" class="h-10 w-10 rounded-xl shadow-sm group-hover:scale-105 transition-transform object-cover"/>
+        </a>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-on-surface font-semibold text-[15px] border-b-2 border-primary pb-0.5" href="index.html">Platform</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors text-[15px] font-medium" href="pricing.html">Pricing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors text-[15px] font-medium" href="how-it-works.html">How It Works</a>
+        </div>
+        <!-- CTA -->
+        <div class="flex items-center gap-4">
+            <a class="hidden md:block text-primary font-semibold text-[15px] hover:text-primary/80 transition-colors" href="#">Log in</a>
+            <a class="bg-primary-container hover:bg-[#086042] text-white px-6 py-2.5 rounded-full font-semibold text-[14px] transition-all duration-200 shadow-sm hover:shadow-lg active:scale-95" href="#">Start Free Trial</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================ -->
+<!-- HERO SECTION -->
+<!-- ============================================ -->
+<section class="relative pt-28 lg:pt-40 pb-8 lg:pb-16 overflow-hidden min-h-screen flex flex-col justify-center">
+    <!-- Background Glows -->
+    <div class="hero-glow top-0 right-0"></div>
+    <div class="hero-glow bottom-0 left-[-200px]"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+        <!-- Hero Content — Centered, Apple-style -->
+        <div class="text-center max-w-4xl mx-auto mb-16 lg:mb-20 reveal-on-scroll">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-primary-container/8 border border-primary-container/15 text-primary-container text-[13px] font-semibold mb-8 tracking-wide">
+                <span class="relative flex h-2 w-2">
+                    <span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+                </span>
+                Powered by AI · Built for India
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-[40px] md:text-[56px] lg:text-[72px] font-extrabold leading-[1.05] tracking-tight mb-6">
+                India's #1<br/>
+                <span class="text-gradient">Intelligent</span> Restaurant<br/>
+                Management System
+            </h1>
+
+            <!-- Subline -->
+            <p class="text-[18px] lg:text-[20px] text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
+                One platform. Every table. Total intelligence.<br class="hidden md:block"/>
+                From QR ordering to AI analytics — everything your restaurant needs, beautifully unified.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a class="bg-primary-container hover:bg-[#086042] text-white px-8 py-4 rounded-full font-semibold text-[16px] transition-all duration-300 shadow-lg shadow-primary-container/20 flex items-center justify-center gap-2 group" href="#">
+                    Start Free Trial
+                    <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+                <a class="bg-white hover:bg-gray-50 text-on-surface px-8 py-4 rounded-full font-semibold text-[16px] transition-all duration-200 shadow-sm border border-gray-200 flex items-center justify-center gap-2" href="#">
+                    <span class="material-symbols-outlined text-[20px] text-primary-container">play_circle</span>
+                    Watch Demo
+                </a>
+            </div>
+        </div>
+
+        <!-- Hero Product Showcase -->
+        <div class="relative max-w-5xl mx-auto reveal-on-scroll" style="transition-delay: 200ms;">
+            <!-- Main Dashboard Image -->
+            <div class="device-frame">
+                <img alt="Qdine Table Management Dashboard — showing real-time table statuses, occupied and available tables, seat capacities, and active orders with QR code support" src="images/table-management.jpg"/>
+            </div>
+
+            <!-- Floating AI Card -->
+            <div class="absolute -bottom-6 -right-4 lg:-right-12 w-[260px] lg:w-[300px] float-animation z-30 hidden md:block">
+                <div class="bg-white rounded-2xl shadow-2xl border border-gray-100 p-5 backdrop-blur-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white text-[20px]">auto_awesome</span>
+                        </div>
+                        <div>
+                            <p class="text-[13px] font-bold text-on-surface">Qdine AI Analyst</p>
+                            <p class="text-[11px] text-on-surface-variant">Ask anything about your business</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="bg-gray-50 rounded-lg px-3 py-2 text-[12px] text-on-surface-variant">
+                            "What are our top 5 best selling items this week?"
+                        </div>
+                        <div class="bg-primary-container/5 rounded-lg px-3 py-2 text-[12px] text-primary-container font-medium">
+                            📊 Cheese Fries leads with 47 orders, followed by...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Stats Card -->
+            <div class="absolute -top-4 -left-4 lg:-left-10 z-30 hidden lg:block float-animation" style="animation-delay: -3s;">
+                <div class="stat-card rounded-2xl px-5 py-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary-container text-[20px]">trending_up</span>
+                        </div>
+                        <div>
+                            <p class="text-[11px] text-on-surface-variant font-medium uppercase tracking-wider">Today's Revenue</p>
+                            <p class="text-[22px] font-bold text-on-surface">₹48,250</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 mt-2">
+                        <span class="text-[12px] font-bold text-primary-container bg-primary-container/10 px-2 py-0.5 rounded">↑ 18%</span>
+                        <span class="text-[11px] text-on-surface-variant">vs yesterday</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SOCIAL PROOF — STATS BAR -->
+<!-- ============================================ -->
+<section class="py-16 border-y border-gray-100 bg-white relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+            <div class="text-center reveal-on-scroll">
+                <p class="text-[36px] lg:text-[44px] font-extrabold text-gradient tracking-tight">500+</p>
+                <p class="text-[14px] text-on-surface-variant font-medium mt-1">Restaurants across India</p>
+            </div>
+            <div class="text-center reveal-on-scroll" style="transition-delay: 100ms;">
+                <p class="text-[36px] lg:text-[44px] font-extrabold text-gradient tracking-tight">₹12Cr+</p>
+                <p class="text-[14px] text-on-surface-variant font-medium mt-1">Orders processed monthly</p>
+            </div>
+            <div class="text-center reveal-on-scroll" style="transition-delay: 200ms;">
+                <p class="text-[36px] lg:text-[44px] font-extrabold text-gradient tracking-tight">99.9%</p>
+                <p class="text-[14px] text-on-surface-variant font-medium mt-1">Platform uptime</p>
+            </div>
+            <div class="text-center reveal-on-scroll" style="transition-delay: 300ms;">
+                <p class="text-[36px] lg:text-[44px] font-extrabold text-gradient tracking-tight">4.9★</p>
+                <p class="text-[14px] text-on-surface-variant font-medium mt-1">Rated by restaurant owners</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FEATURES — PRODUCT SHOWCASE -->
+<!-- ============================================ -->
+<section class="section-spacer bg-surface relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal-on-scroll">
+            <p class="text-[13px] font-semibold text-primary-container uppercase tracking-[0.15em] mb-4">The Platform</p>
+            <h2 class="text-[32px] md:text-[44px] font-extrabold leading-tight tracking-tight mb-5">
+                Everything your restaurant needs.<br/>
+                <span class="text-on-surface-variant font-semibold">Nothing it doesn't.</span>
+            </h2>
+            <p class="text-[17px] text-on-surface-variant leading-relaxed">
+                Four powerful modules. One seamless experience. Built from the ground up for the way Indian restaurants actually work.
+            </p>
+        </div>
+
+        <!-- Feature Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- FEATURE 1: AI Analyst — HERO CARD (Large, dark) -->
+            <div class="lg:col-span-7 feature-card bg-primary-container !border-0 p-8 lg:p-10 relative overflow-hidden group reveal-on-scroll">
+                <!-- Ambient glow -->
+                <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[80px] pointer-events-none"></div>
+                
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center backdrop-blur-sm">
+                            <span class="material-symbols-outlined text-white text-[24px]">auto_awesome</span>
+                        </div>
+                        <span class="text-[12px] font-bold text-white/60 uppercase tracking-[0.15em]">AI-Powered</span>
+                    </div>
+                    <h3 class="text-[26px] lg:text-[30px] font-bold text-white mb-3 leading-tight">
+                        Ask anything.<br/>Get answers instantly.
+                    </h3>
+                    <p class="text-white/70 text-[15px] leading-relaxed max-w-md mb-8">
+                        Qdine AI Analyst understands your sales, orders, peak hours, and inventory. Just ask a question — in plain English — and get data-driven answers in seconds. It's like having a business analyst who never sleeps.
+                    </p>
+                </div>
+                <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-700">
+                    <img alt="Qdine AI Analyst interface — conversational AI that answers questions about sales data, best-selling items, peak hours, and cancellation rates in real-time" src="images/ai-analyst.jpg" class="w-full h-auto"/>
+                </div>
+            </div>
+
+            <!-- FEATURE 2: Table Management -->
+            <div class="lg:col-span-5 feature-card p-8 lg:p-10 flex flex-col reveal-on-scroll" style="transition-delay: 100ms;">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-11 h-11 rounded-xl bg-primary-container/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary-container text-[24px]">table_restaurant</span>
+                    </div>
+                    <span class="text-[12px] font-bold text-on-surface-variant uppercase tracking-[0.15em]">Table Management</span>
+                </div>
+                <h3 class="text-[24px] font-bold text-on-surface mb-3 leading-tight">
+                    Every seat. Every status.<br/>One glance.
+                </h3>
+                <p class="text-on-surface-variant text-[15px] leading-relaxed mb-8">
+                    See which tables are occupied, available, or waiting. Track active orders and revenue per table in real time. Add tables, generate QR codes, and manage capacities — all from a single, beautiful dashboard.
+                </p>
+                <div class="mt-auto rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                    <img alt="Qdine Table Management showing occupied and available tables with real-time order tracking and seat capacity management" src="images/table-management.jpg" class="w-full h-auto"/>
+                </div>
+            </div>
+
+            <!-- FEATURE 3: Products & Inventory -->
+            <div class="lg:col-span-5 feature-card p-8 lg:p-10 flex flex-col reveal-on-scroll" style="transition-delay: 200ms;">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-11 h-11 rounded-xl bg-primary-container/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary-container text-[24px]">inventory_2</span>
+                    </div>
+                    <span class="text-[12px] font-bold text-on-surface-variant uppercase tracking-[0.15em]">Products & Inventory</span>
+                </div>
+                <h3 class="text-[24px] font-bold text-on-surface mb-3 leading-tight">
+                    Your entire menu.<br/>Mastered.
+                </h3>
+                <p class="text-on-surface-variant text-[15px] leading-relaxed mb-8">
+                    Manage every item, category, price, and stock level with precision. Visual status indicators — Available, Low Stock, Out of Stock — keep you one step ahead. Upload your menu via a photo or add items one by one.
+                </p>
+                <div class="mt-auto rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                    <img alt="Qdine Products Inventory showing menu items with categories, pricing in rupees, stock levels, buffer thresholds, and availability status" src="images/products-inventory.jpg" class="w-full h-auto"/>
+                </div>
+            </div>
+
+            <!-- FEATURE 4: Digital Menu -->
+            <div class="lg:col-span-7 feature-card p-8 lg:p-10 relative overflow-hidden reveal-on-scroll" style="transition-delay: 300ms;">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-11 h-11 rounded-xl bg-primary-container/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary-container text-[24px]">qr_code_2</span>
+                            </div>
+                            <span class="text-[12px] font-bold text-on-surface-variant uppercase tracking-[0.15em]">Digital Menu</span>
+                        </div>
+                        <h3 class="text-[24px] font-bold text-on-surface mb-3 leading-tight">
+                            A menu your guests will love.
+                        </h3>
+                        <p class="text-on-surface-variant text-[15px] leading-relaxed mb-6">
+                            Your customers scan a QR code and get a stunning, mobile-first digital menu. They browse, search, filter by category, and order — all from their phone. No app downloads. No waiting for the waiter. Just pure, frictionless dining.
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center gap-2 text-[13px] text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-[18px]">smartphone</span>
+                                Mobile-first
+                            </div>
+                            <div class="flex items-center gap-2 text-[13px] text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-[18px]">bolt</span>
+                                Instant load
+                            </div>
+                            <div class="flex items-center gap-2 text-[13px] text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-[18px]">palette</span>
+                                Branded
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="phone-frame w-[220px] lg:w-[250px]">
+                            <img alt="Qdine customer-facing digital menu showing Today's Specials with food items, prices in rupees, availability status, and category filters" src="images/customer-menu.jpg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- WHY QDINE — DIFFERENTIATORS -->
+<!-- ============================================ -->
+<section class="section-spacer bg-white relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal-on-scroll">
+            <p class="text-[13px] font-semibold text-primary-container uppercase tracking-[0.15em] mb-4">Why Qdine</p>
+            <h2 class="text-[32px] md:text-[44px] font-extrabold leading-tight tracking-tight">
+                Built different.<br/>
+                <span class="text-on-surface-variant font-semibold">Because your restaurant deserves it.</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-on-scroll">
+            <!-- Differentiator 1 -->
+            <div class="text-center p-8">
+                <div class="w-16 h-16 rounded-2xl bg-primary-container/8 flex items-center justify-center text-primary-container mx-auto mb-6">
+                    <span class="material-symbols-outlined text-[32px]">speed</span>
+                </div>
+                <h3 class="text-[20px] font-bold mb-3">Live in 15 minutes</h3>
+                <p class="text-on-surface-variant text-[15px] leading-relaxed">
+                    Sign up, upload your menu, print your QR codes, and start taking orders. No hardware. No installation. No waiting.
+                </p>
+            </div>
+            <!-- Differentiator 2 -->
+            <div class="text-center p-8">
+                <div class="w-16 h-16 rounded-2xl bg-primary-container/8 flex items-center justify-center text-primary-container mx-auto mb-6">
+                    <span class="material-symbols-outlined text-[32px]">auto_awesome</span>
+                </div>
+                <h3 class="text-[20px] font-bold mb-3">AI that actually helps</h3>
+                <p class="text-on-surface-variant text-[15px] leading-relaxed">
+                    Not a gimmick. Our AI Analyst processes your real data — sales, cancellations, peak hours — and gives you answers you can act on. Today.
+                </p>
+            </div>
+            <!-- Differentiator 3 -->
+            <div class="text-center p-8">
+                <div class="w-16 h-16 rounded-2xl bg-primary-container/8 flex items-center justify-center text-primary-container mx-auto mb-6">
+                    <span class="material-symbols-outlined text-[32px]">india</span>
+                </div>
+                <h3 class="text-[20px] font-bold mb-3">Made for India</h3>
+                <p class="text-on-surface-variant text-[15px] leading-relaxed">
+                    Rupee pricing. GST-ready billing. UPI integration. Veg/Non-veg indicators. Built by Indians, for Indian restaurants.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- TESTIMONIAL -->
+<!-- ============================================ -->
+<section class="section-spacer bg-surface-container-low relative overflow-hidden z-10">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#0a714e 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center reveal-on-scroll">
+        <div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center text-primary-container mx-auto mb-8">
+            <span class="material-symbols-outlined text-[32px]">format_quote</span>
+        </div>
+        <h2 class="text-[24px] md:text-[32px] font-bold leading-relaxed mb-10 text-on-surface max-w-3xl mx-auto">
+            "We switched from a ₹3 lakh POS system to Qdine. Setup took 20 minutes. Our staff learned it in one shift. The AI Analyst alone has saved us lakhs by catching waste we never knew existed. This isn't just software — it's the best decision we made this year."
+        </h2>
+        <div class="flex items-center justify-center gap-4">
+            <div class="w-14 h-14 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container font-bold text-lg">RK</div>
+            <div class="text-left">
+                <p class="text-[16px] font-bold text-on-surface">Rahul Krishnan</p>
+                <p class="text-[14px] text-on-surface-variant">Owner, Spice District — Kochi</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CTA SECTION -->
+<!-- ============================================ -->
+<section class="section-spacer bg-surface relative z-10">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center reveal-on-scroll">
+        <h2 class="text-[32px] md:text-[48px] font-extrabold leading-tight tracking-tight mb-6">
+            The future of Indian<br/>restaurants starts here.
+        </h2>
+        <p class="text-[17px] text-on-surface-variant leading-relaxed mb-10 max-w-2xl mx-auto">
+            Join 500+ restaurant owners who've already made the switch. Start your free trial today — no credit card required, no contracts, no excuses.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a class="bg-primary-container hover:bg-[#086042] text-white px-10 py-4 rounded-full font-semibold text-[16px] transition-all duration-300 shadow-lg shadow-primary-container/20 flex items-center justify-center gap-2 group" href="#">
+                Start your free trial
+                <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+            <a class="bg-white hover:bg-gray-50 text-on-surface px-10 py-4 rounded-full font-semibold text-[16px] transition-all duration-200 shadow-sm border border-gray-200" href="#">
+                Talk to Sales
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="bg-white border-t border-gray-100 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-12">
+            <!-- Brand -->
+            <div class="col-span-2">
+                <div class="flex items-center gap-2 mb-5">
+                    <img src="images/qdine-logo.jpg" alt="Qdine" class="h-9 w-9 rounded-lg shadow-sm object-cover"/>
+                </div>
+                <p class="text-on-surface-variant text-[14px] leading-relaxed max-w-xs mb-4">
+                    India's most intelligent restaurant management platform. Built with precision, designed for hospitality.
+                </p>
+                <p class="text-[12px] text-on-surface-variant/60">Made with ❤️ in India</p>
+            </div>
+            <!-- Product -->
+            <div>
+                <h4 class="font-bold text-on-surface text-[13px] mb-4 uppercase tracking-wider">Product</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Features</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="pricing.html">Pricing</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Security</a></li>
+                </ul>
+            </div>
+            <!-- Resources -->
+            <div>
+                <h4 class="font-bold text-on-surface text-[13px] mb-4 uppercase tracking-wider">Resources</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Blog</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Guides</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Help Center</a></li>
+                </ul>
+            </div>
+            <!-- Company -->
+            <div>
+                <h4 class="font-bold text-on-surface text-[13px] mb-4 uppercase tracking-wider">Company</h4>
+                <ul class="space-y-3">
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">About Us</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Careers</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors text-[14px]" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-on-surface-variant text-[13px]">© 2025 Qdine Restaurant Systems Pvt. Ltd. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-[13px]" href="#">Privacy</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-[13px]" href="#">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal-on-scroll');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // Nav styling on scroll
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md', 'bg-white/95');
+                nav.classList.remove('bg-white/80', 'shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md', 'bg-white/95');
+                nav.classList.add('bg-white/80', 'shadow-sm');
+            }
+        });
+    });
+</script>
+</body>
+</html>
