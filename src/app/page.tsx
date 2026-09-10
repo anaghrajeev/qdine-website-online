@@ -74,7 +74,7 @@ export default function Page() {
             {/* Step 1 */}
             <div className="reveal-on-scroll">
                 <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-[90%] h-[90%] animate-float">
+                    <div className="relative w-[115%] h-[115%] animate-float">
                         <Image src="/images/1.png" alt="POS Menu" fill className="object-contain drop-shadow-xl" />
                     </div>
                 </div>
@@ -89,7 +89,7 @@ export default function Page() {
             {/* Step 2 */}
             <div className="reveal-on-scroll" style={{"transitionDelay":"100ms"}}>
                 <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-[90%] h-[90%] animate-float-delayed-1">
+                    <div className="relative w-[115%] h-[115%] animate-float-delayed-1">
                         <Image src="/images/2.png" alt="Complete Order" fill className="object-contain drop-shadow-xl" />
                     </div>
                 </div>
@@ -104,7 +104,7 @@ export default function Page() {
             {/* Step 3 */}
             <div className="reveal-on-scroll" style={{"transitionDelay":"200ms"}}>
                 <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-[90%] h-[90%] animate-float-delayed-2">
+                    <div className="relative w-[115%] h-[115%] animate-float-delayed-2">
                         <Image src="/images/3.png" alt="Order Ticket" fill className="object-contain drop-shadow-xl" />
                     </div>
                 </div>
@@ -191,6 +191,11 @@ export default function Page() {
 
 
 
+
+{/*  ============================================  */}
+{/*  AI SHOWCASE  */}
+{/*  ============================================  */}
+<AIShowcase />
 
 {/*  ============================================  */}
 {/*  CTA SECTION  */}
