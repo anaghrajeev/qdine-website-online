@@ -74,8 +74,8 @@ export default function Page() {
             {/* Step 1 */}
             <div className="reveal-on-scroll">
                 <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-[115%] h-[115%] animate-float">
-                        <Image src="/images/1.png" alt="POS Menu" fill className="object-contain drop-shadow-xl" />
+                    <div className="relative w-full h-full animate-float">
+                        <Image src="/images/1.png" alt="POS Menu" fill className="object-contain drop-shadow-xl scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                     </div>
                 </div>
                 <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
@@ -89,8 +89,8 @@ export default function Page() {
             {/* Step 2 */}
             <div className="reveal-on-scroll" style={{"transitionDelay":"100ms"}}>
                 <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-[115%] h-[115%] animate-float-delayed-1">
-                        <Image src="/images/2.png" alt="Complete Order" fill className="object-contain drop-shadow-xl" />
+                    <div className="relative w-full h-full animate-float-delayed-1">
+                        <Image src="/images/2.png" alt="Complete Order" fill className="object-contain drop-shadow-xl scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                     </div>
                 </div>
                 <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
@@ -104,8 +104,8 @@ export default function Page() {
             {/* Step 3 */}
             <div className="reveal-on-scroll" style={{"transitionDelay":"200ms"}}>
                 <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-[115%] h-[115%] animate-float-delayed-2">
-                        <Image src="/images/3.png" alt="Order Ticket" fill className="object-contain drop-shadow-xl" />
+                    <div className="relative w-full h-full animate-float-delayed-2">
+                        <Image src="/images/3.png" alt="Order Ticket" fill className="object-contain drop-shadow-xl scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                     </div>
                 </div>
                 <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
@@ -136,7 +136,7 @@ export default function Page() {
             {/* Feature 1 */}
             <div className="reveal-on-scroll flex flex-col">
                 <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                    <Image src="/images/ai-analyst.jpg" alt="AI Analyst" fill className="object-cover object-top hover:scale-105 transition-transform duration-700" />
+                    <Image src="/images/ai_data_anlyst.png" alt="AI Analyst" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                 </div>
                 <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
                     Ask anything. Get answers instantly.
@@ -149,7 +149,7 @@ export default function Page() {
             {/* Feature 2 */}
             <div className="reveal-on-scroll flex flex-col" style={{"transitionDelay":"100ms"}}>
                 <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                    <Image src="/images/table-management.jpg" alt="Table Management" fill className="object-cover object-top hover:scale-105 transition-transform duration-700" />
+                    <Image src="/images/tbl_mgmt.png" alt="Table Management" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                 </div>
                 <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
                     Every seat. Every status. One glance.
@@ -162,7 +162,7 @@ export default function Page() {
             {/* Feature 3 */}
             <div className="reveal-on-scroll flex flex-col" style={{"transitionDelay":"100ms"}}>
                 <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                    <Image src="/images/products-inventory.jpg" alt="Products & Inventory" fill className="object-cover object-top hover:scale-105 transition-transform duration-700" />
+                    <Image src="/images/product_inv.png" alt="Products & Inventory" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                 </div>
                 <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
                     Your entire menu. Mastered.
@@ -176,7 +176,7 @@ export default function Page() {
             {/* Feature 4 */}
             <div className="reveal-on-scroll flex flex-col" style={{"transitionDelay":"200ms"}}>
                 <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                    <Image src="/images/ip-17.png" alt="Digital Menu" fill className="object-cover object-top hover:scale-105 transition-transform duration-700" />
+                    <Image src="/images/p_pad_menu.png" alt="Digital Menu" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                 </div>
                 <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
                     A menu your guests will love.

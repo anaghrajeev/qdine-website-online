@@ -1,4 +1,10 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Pricing",
+  description: "Simple, transparent pricing for restaurants of all sizes. Find the right Qdine plan for your business with no hidden fees.",
+};
 
 export default function Page() {
   return (

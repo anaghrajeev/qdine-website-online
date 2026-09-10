@@ -1,4 +1,10 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Our Mission",
+  description: "Empowering every restaurant to run smarter. Qdine gives every restaurant the same powerful, intelligent tools reserved for global chains.",
+};
 
 export default function Page() {
   return (
