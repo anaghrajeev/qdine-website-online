@@ -73,8 +73,10 @@ export default function Page() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="reveal-on-scroll">
-                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-hidden relative shadow-inner border border-black/5">
-                    <Image src="/images/pos-menu.jpg" alt="POS Menu" fill className="object-cover object-[center_20%] scale-[1.15] hover:scale-[1.25] transition-transform duration-700" />
+                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
+                    <div className="relative w-[90%] h-[90%] animate-float">
+                        <Image src="/images/1.png" alt="POS Menu" fill className="object-contain drop-shadow-xl" />
+                    </div>
                 </div>
                 <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
                     <span className="text-gray-400 text-[22px] font-medium">1</span> Browse the menu
@@ -86,8 +88,10 @@ export default function Page() {
 
             {/* Step 2 */}
             <div className="reveal-on-scroll" style={{"transitionDelay":"100ms"}}>
-                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-hidden relative shadow-inner border border-black/5">
-                    <Image src="/images/pos-checkout.jpg" alt="Complete Order" fill className="object-cover object-[center_60%] scale-[1.15] hover:scale-[1.25] transition-transform duration-700" />
+                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
+                    <div className="relative w-[90%] h-[90%] animate-float-delayed-1">
+                        <Image src="/images/2.png" alt="Complete Order" fill className="object-contain drop-shadow-xl" />
+                    </div>
                 </div>
                 <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
                     <span className="text-gray-400 text-[22px] font-medium">2</span> Complete the order
@@ -99,8 +103,10 @@ export default function Page() {
 
             {/* Step 3 */}
             <div className="reveal-on-scroll" style={{"transitionDelay":"200ms"}}>
-                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-hidden relative shadow-inner border border-black/5">
-                    <Image src="/images/pos-ticket.jpg" alt="Order Ticket" fill className="object-cover object-[center_40%] scale-[1.15] hover:scale-[1.25] transition-transform duration-700" />
+                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
+                    <div className="relative w-[90%] h-[90%] animate-float-delayed-2">
+                        <Image src="/images/3.png" alt="Order Ticket" fill className="object-contain drop-shadow-xl" />
+                    </div>
                 </div>
                 <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
                     <span className="text-gray-400 text-[22px] font-medium">3</span> Track and manage

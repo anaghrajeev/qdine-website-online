@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const pathname = usePathname();
 
     return (
         <nav className="fixed top-0 w-full z-50 border-b border-white/10 bg-[#0a714e] backdrop-blur-xl shadow-sm transition-all duration-300" id="mainNav">
@@ -24,13 +26,13 @@ export default function Navbar() {
                 </Link>
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
-                    <Link className="text-white font-semibold text-[15px] border-b-2 border-white pb-0.5" href="/">
+                    <Link className={`text-[15px] transition-colors ${pathname === '/' ? 'text-white font-semibold border-b-2 border-white pb-0.5' : 'text-white/80 hover:text-white font-medium'}`} href="/">
                         Platform
                     </Link>
-                    <Link className="text-white/80 hover:text-white transition-colors text-[15px] font-medium" href="/pricing">
+                    <Link className={`text-[15px] transition-colors ${pathname === '/pricing' ? 'text-white font-semibold border-b-2 border-white pb-0.5' : 'text-white/80 hover:text-white font-medium'}`} href="/pricing">
                         Pricing
                     </Link>
-                    <Link className="text-white/80 hover:text-white transition-colors text-[15px] font-medium" href="/mission">
+                    <Link className={`text-[15px] transition-colors ${pathname === '/mission' ? 'text-white font-semibold border-b-2 border-white pb-0.5' : 'text-white/80 hover:text-white font-medium'}`} href="/mission">
                         Mission
                     </Link>
                 </div>
@@ -59,21 +61,21 @@ export default function Navbar() {
             {mobileOpen && (
                 <div className="md:hidden bg-[#0a714e] border-t border-white/10 px-4 pb-6 pt-4 space-y-1 animate-[fadeIn_200ms_ease-out]">
                     <Link 
-                        className="block py-3 px-4 text-white font-semibold text-[15px] rounded-xl hover:bg-white/10 transition-colors" 
+                        className={`block py-3 px-4 text-[15px] rounded-xl hover:bg-white/10 transition-colors ${pathname === '/' ? 'text-white font-semibold' : 'text-white/80 font-medium'}`} 
                         href="/"
                         onClick={() => setMobileOpen(false)}
                     >
                         Platform
                     </Link>
                     <Link 
-                        className="block py-3 px-4 text-white/80 font-medium text-[15px] rounded-xl hover:bg-white/10 transition-colors" 
+                        className={`block py-3 px-4 text-[15px] rounded-xl hover:bg-white/10 transition-colors ${pathname === '/pricing' ? 'text-white font-semibold' : 'text-white/80 font-medium'}`} 
                         href="/pricing"
                         onClick={() => setMobileOpen(false)}
                     >
                         Pricing
                     </Link>
                     <Link 
-                        className="block py-3 px-4 text-white/80 font-medium text-[15px] rounded-xl hover:bg-white/10 transition-colors" 
+                        className={`block py-3 px-4 text-[15px] rounded-xl hover:bg-white/10 transition-colors ${pathname === '/mission' ? 'text-white font-semibold' : 'text-white/80 font-medium'}`} 
                         href="/mission"
                         onClick={() => setMobileOpen(false)}
                     >
