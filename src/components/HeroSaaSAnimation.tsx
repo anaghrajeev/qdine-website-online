@@ -44,17 +44,17 @@ export default function HeroSaaSAnimation() {
                     <div className="w-2 h-2 rounded-full border-2 border-yellow-400"></div>
                 </div>
                 <div className="flex gap-1.5">
-                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm">
-                        <span className="material-symbols-outlined text-[15px]">magic_button</span>
+                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm cursor-pointer hover:bg-gray-100 transition-colors">
+                        <span className="material-symbols-outlined text-[15px] transform scale-[0.75]">magic_button</span>
                     </div>
-                    <div className="w-7 h-7 rounded-[6px] border border-red-100 bg-red-50 flex items-center justify-center text-red-500 shadow-sm">
-                        <span className="material-symbols-outlined text-[15px]">delete_outline</span>
+                    <div className="w-7 h-7 rounded-[6px] border border-red-100 bg-red-50 flex items-center justify-center text-red-500 shadow-sm cursor-pointer hover:bg-red-100 transition-colors">
+                        <span className="material-symbols-outlined text-[15px] transform scale-[0.75]">delete_outline</span>
                     </div>
-                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm">
-                        <span className="material-symbols-outlined text-[15px]">close_fullscreen</span>
+                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm cursor-pointer hover:bg-gray-100 transition-colors">
+                        <span className="material-symbols-outlined text-[15px] transform scale-[0.75]">close_fullscreen</span>
                     </div>
-                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm">
-                        <span className="material-symbols-outlined text-[15px]">close</span>
+                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm cursor-pointer hover:bg-gray-100 transition-colors">
+                        <span className="material-symbols-outlined text-[15px] transform scale-[0.75]">close</span>
                     </div>
                 </div>
             </div>
@@ -151,8 +151,8 @@ export default function HeroSaaSAnimation() {
             <div className="p-3 bg-white/50 border-t border-gray-100">
                 <div className="relative">
                     <input type="text" placeholder="Ask sales, peak hours, cancellations..." className="w-full bg-white border border-gray-200 rounded-full pl-4 pr-10 py-2 sm:py-2.5 text-[11px] sm:text-[12px] outline-none focus:border-[#0a714e]/50 transition-colors shadow-inner" disabled />
-                    <div className="absolute right-1 top-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-100 flex items-center justify-center">
-                        <span className="material-symbols-outlined text-[14px] text-gray-400">send</span>
+                    <div className="absolute right-1.5 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-100 flex items-center justify-center">
+                        <span className="material-symbols-outlined text-[14px] text-gray-400 pl-[2px]">send</span>
                     </div>
                 </div>
             </div>

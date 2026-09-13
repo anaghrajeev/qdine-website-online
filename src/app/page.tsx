@@ -12,7 +12,7 @@ export default function Page() {
             
             {/* Left Column: Content */}
             <div className="reveal-on-scroll max-w-xl">
-                <h1 className="text-[32px] sm:text-[40px] md:text-[56px] lg:text-[76px] font-medium leading-[1.05] tracking-tight mb-6 text-[#1a1a1a]">
+                <h1 className="text-[44px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-medium leading-[1.05] tracking-tight mb-6 text-[#1a1a1a]">
                     The world's most<br/>
                     <span className="inline-grid [grid-template-columns:1fr] [grid-template-rows:1fr] overflow-hidden align-baseline relative">
                         <span className="col-start-1 row-start-1 font-serif italic font-normal animate-[slideUp1_9s_ease-in-out_infinite] pr-3">intelligent</span>
@@ -54,7 +54,7 @@ export default function Page() {
             </div>
 
             {/* Right Column: Visual */}
-            <div className="relative reveal-on-scroll" style={{"transitionDelay":"200ms"}}>
+            <div className="relative reveal-on-scroll lg:-translate-y-12" style={{"transitionDelay":"200ms"}}>
                 <div className="rounded-[24px] sm:rounded-[40px] overflow-hidden relative shadow-2xl h-[350px] sm:h-[450px] lg:h-[600px] w-full bg-gray-50 border border-gray-100">
                     <HeroSaaSAnimation />
                 </div>
@@ -66,7 +66,7 @@ export default function Page() {
 {/*  ============================================  */}
 {/*  HOW IT WORKS (SIMPLE AS IT GETS)  */}
 {/*  ============================================  */}
-<section className="bg-[#fdfaf6] py-16 sm:py-24 relative z-10">
+<section className="bg-[#fdfaf6] py-16 sm:py-24 relative z-10 overflow-hidden">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-center font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] mb-10 sm:mb-16 tracking-tight">Simple as it gets.</h2>
         
@@ -123,7 +123,7 @@ export default function Page() {
 {/*  ============================================  */}
 {/*  FEATURES — PRODUCT SHOWCASE  */}
 {/*  ============================================  */}
-<section className="py-16 sm:py-24 bg-[#fdfaf6] relative z-10">
+<section className="py-16 sm:py-24 bg-[#fdfaf6] relative z-10 overflow-hidden">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-20 reveal-on-scroll">
             <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] tracking-tight leading-[1.1]">
@@ -200,7 +200,7 @@ export default function Page() {
 {/*  ============================================  */}
 {/*  CTA SECTION  */}
 {/*  ============================================  */}
-<section className="py-20 sm:py-32 bg-[#fdfaf6] relative z-10">
+<section className="py-20 sm:py-32 bg-[#fdfaf6] relative z-10 overflow-hidden">
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll">
         <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[64px] text-[#1a1a1a] tracking-tight leading-[1.1] mb-6">
             The future of<br/>restaurants starts here.

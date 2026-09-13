@@ -78,13 +78,13 @@ export default function AIShowcase() {
                     <div className="absolute inset-0 bg-gradient-to-r from-[#fdfaf6] via-transparent to-[#fdfaf6] z-10 pointer-events-none"></div>
 
                     {/* Search Bar */}
-                    <div className="relative z-30 w-full max-w-2xl bg-white rounded-full p-2.5 pl-6 md:pl-8 flex items-center justify-between shadow-[0_20px_60px_-15px_rgba(0,0,0,0.12)] border border-gray-200/60 transform hover:scale-[1.02] transition-transform duration-500">
-                        <div className="flex-1 text-[#1a1a1a] text-[16px] md:text-[20px] font-medium tracking-tight overflow-hidden whitespace-nowrap flex items-center">
+                    <div className="relative z-30 w-full max-w-2xl bg-white rounded-full p-2 sm:p-2.5 pl-4 sm:pl-6 md:pl-8 flex items-center justify-between shadow-[0_20px_60px_-15px_rgba(0,0,0,0.12)] border border-gray-200/60 transform hover:scale-[1.02] transition-transform duration-500">
+                        <div className="flex-1 min-w-0 pr-2 sm:pr-4 text-[#1a1a1a] text-[13px] min-[375px]:text-[14px] sm:text-[16px] md:text-[20px] font-medium tracking-tight overflow-hidden whitespace-nowrap flex items-center">
                             {currentText}
-                            <span className="inline-block w-0.5 h-[1.2em] bg-[#1a1a1a] align-middle ml-1 animate-pulse"></span>
+                            <span className="inline-block w-0.5 h-[1.2em] bg-[#1a1a1a] align-middle ml-1 animate-pulse flex-shrink-0"></span>
                         </div>
-                        <button className="w-12 h-12 md:w-14 md:h-14 bg-[#00A3FF] hover:bg-[#008AE6] text-white rounded-full flex items-center justify-center transition-colors flex-shrink-0 shadow-md group">
-                            <span className="material-symbols-outlined text-[24px] transform group-hover:-translate-y-1 transition-transform">arrow_upward</span>
+                        <button className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[#00A3FF] hover:bg-[#008AE6] text-white rounded-full flex items-center justify-center transition-colors flex-shrink-0 shadow-md group">
+                            <span className="material-symbols-outlined text-[20px] sm:text-[24px] transform group-hover:-translate-y-1 transition-transform">arrow_upward</span>
                         </button>
                     </div>
 

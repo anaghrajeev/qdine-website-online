@@ -17,10 +17,9 @@ export default function Navbar() {
                     <Image 
                         src="/images/nav-logo.png" 
                         alt="Qdine" 
-                        width={100} 
-                        height={32} 
-                        className="group-hover:scale-105 transition-transform object-contain"
-                        style={{ width: 'auto', height: 'auto' }}
+                        width={105} 
+                        height={34} 
+                        className="w-[85px] sm:w-[95px] md:w-[105px] h-auto group-hover:scale-105 transition-transform object-contain"
                         priority
                     />
                 </Link>
