@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import AIShowcase from '@/components/AIShowcase';
 import HeroSaaSAnimation from '@/components/HeroSaaSAnimation';
+import HowItWorksInteractive from '@/components/HowItWorksInteractive';
 
 export default function Page() {
   return (
@@ -66,58 +67,7 @@ export default function Page() {
 {/*  ============================================  */}
 {/*  HOW IT WORKS (SIMPLE AS IT GETS)  */}
 {/*  ============================================  */}
-<section className="bg-[#fdfaf6] py-16 sm:py-24 relative z-10 overflow-hidden">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] mb-10 sm:mb-16 tracking-tight">Simple as it gets.</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="reveal-on-scroll">
-                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-full h-full animate-float">
-                        <Image src="/images/1.png" alt="POS Menu" fill className="object-contain drop-shadow-xl scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
-                    </div>
-                </div>
-                <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
-                    <span className="text-gray-400 text-[22px] font-medium">1</span> Browse the menu
-                </h3>
-                <p className="text-gray-600 text-[15px] leading-relaxed pr-4">
-                    Tap to add items to your cart instantly. Easily manage stock availability and variations on the fly.
-                </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="reveal-on-scroll" style={{"transitionDelay":"100ms"}}>
-                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-full h-full animate-float-delayed-1">
-                        <Image src="/images/2.png" alt="Complete Order" fill className="object-contain drop-shadow-xl scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
-                    </div>
-                </div>
-                <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
-                    <span className="text-gray-400 text-[22px] font-medium">2</span> Complete the order
-                </h3>
-                <p className="text-gray-600 text-[15px] leading-relaxed pr-4">
-                    Assign tables, set order types (dine-in or takeaway), and add customer preferences before placing the order.
-                </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="reveal-on-scroll" style={{"transitionDelay":"200ms"}}>
-                <div className="bg-[#f0f4f8] rounded-[24px] aspect-[4/3] mb-8 overflow-visible relative shadow-inner border border-black/5 flex items-center justify-center">
-                    <div className="relative w-full h-full animate-float-delayed-2">
-                        <Image src="/images/3.png" alt="Order Ticket" fill className="object-contain drop-shadow-xl scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
-                    </div>
-                </div>
-                <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-3 flex items-center gap-4">
-                    <span className="text-gray-400 text-[22px] font-medium">3</span> Track and manage
-                </h3>
-                <p className="text-gray-600 text-[15px] leading-relaxed pr-4">
-                    Stay on top of live orders. Update statuses to "Preparing" or "Ready" and keep your kitchen flowing smoothly.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+<HowItWorksInteractive />
 
 
 {/*  ============================================  */}
@@ -132,58 +82,66 @@ export default function Page() {
             </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 bento-grid">
             {/* Feature 1 */}
-            <div className="reveal-on-scroll flex flex-col">
-                <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                    <Image src="/images/ai_data_anlyst.png" alt="AI Analyst" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+            <div className="reveal-on-scroll bento-item">
+                <div className="flex flex-col h-full bento-inner">
+                    <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
+                        <Image src="/images/ai_data_anlyst.png" alt="AI Analyst" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+                    </div>
+                    <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
+                        Ask anything. Get answers instantly.
+                    </h3>
+                    <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
+                        Qdine AI Analyst understands your sales, orders, peak hours, and inventory. Just ask a question — in plain English — and get data-driven answers in seconds. It's like having a business analyst who never sleeps.
+                    </p>
                 </div>
-                <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
-                    Ask anything. Get answers instantly.
-                </h3>
-                <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
-                    Qdine AI Analyst understands your sales, orders, peak hours, and inventory. Just ask a question — in plain English — and get data-driven answers in seconds. It's like having a business analyst who never sleeps.
-                </p>
             </div>
 
             {/* Feature 2 */}
-            <div className="reveal-on-scroll flex flex-col" style={{"transitionDelay":"100ms"}}>
-                <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                    <Image src="/images/tbl_mgmt.png" alt="Table Management" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+            <div className="reveal-on-scroll bento-item" style={{"transitionDelay":"100ms"}}>
+                <div className="flex flex-col h-full bento-inner">
+                    <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
+                        <Image src="/images/tbl_mgmt.png" alt="Table Management" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+                    </div>
+                    <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
+                        Every seat. Every status. One glance.
+                    </h3>
+                    <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
+                        See which tables are occupied, available, or waiting. Track active orders and revenue per table in real time. Add tables, generate QR codes, and manage capacities — all from a single, beautiful dashboard.
+                    </p>
                 </div>
-                <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
-                    Every seat. Every status. One glance.
-                </h3>
-                <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
-                    See which tables are occupied, available, or waiting. Track active orders and revenue per table in real time. Add tables, generate QR codes, and manage capacities — all from a single, beautiful dashboard.
-                </p>
             </div>
 
             {/* Feature 3 */}
-            <div className="reveal-on-scroll flex flex-col" style={{"transitionDelay":"100ms"}}>
-                <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                    <Image src="/images/product_inv.png" alt="Products & Inventory" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+            <div className="reveal-on-scroll bento-item" style={{"transitionDelay":"100ms"}}>
+                <div className="flex flex-col h-full bento-inner">
+                    <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
+                        <Image src="/images/product_inv.png" alt="Products & Inventory" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+                    </div>
+                    <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
+                        Your entire menu. Mastered.
+                    </h3>
+                    <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
+                        Manage every item, category, price, and stock level with precision. Visual status indicators — Available, Low Stock, Out of Stock — keep you one step ahead. Upload your menu via a photo or add items one by one.
+                    </p>
                 </div>
-                <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
-                    Your entire menu. Mastered.
-                </h3>
-                <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
-                    Manage every item, category, price, and stock level with precision. Visual status indicators — Available, Low Stock, Out of Stock — keep you one step ahead. Upload your menu via a photo or add items one by one.
-                </p>
             </div>
 
 
             {/* Feature 4 */}
-            <div className="reveal-on-scroll flex flex-col" style={{"transitionDelay":"200ms"}}>
-                <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                    <Image src="/images/p_pad_menu.png" alt="Digital Menu" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+            <div className="reveal-on-scroll bento-item" style={{"transitionDelay":"200ms"}}>
+                <div className="flex flex-col h-full bento-inner">
+                    <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
+                        <Image src="/images/p_pad_menu.png" alt="Digital Menu" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+                    </div>
+                    <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
+                        A menu your guests will love.
+                    </h3>
+                    <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
+                        Your customers scan a QR code and get a stunning, mobile-first digital menu. They browse, search, filter by category, and order — all from their phone. No app downloads. No waiting for the waiter. Just pure, frictionless dining.
+                    </p>
                 </div>
-                <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
-                    A menu your guests will love.
-                </h3>
-                <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
-                    Your customers scan a QR code and get a stunning, mobile-first digital menu. They browse, search, filter by category, and order — all from their phone. No app downloads. No waiting for the waiter. Just pure, frictionless dining.
-                </p>
             </div>
         </div>
     </div>

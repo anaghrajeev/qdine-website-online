@@ -39,7 +39,7 @@ export default function Footer() {
                         <ul className="space-y-3">
                             <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="#">About Us</Link></li>
                             <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="#">Careers</Link></li>
-                            <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="#">Contact</Link></li>
+                            <li><a className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="mailto:support@getqdine.com">support@getqdine.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,8 +47,8 @@ export default function Footer() {
                 <div className="border-t border-gray-200/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-500 text-[13px] font-medium">© 2025 Devou Solutions LLP. All rights reserved.</p>
                     <div className="flex gap-6">
-                        <Link className="text-gray-500 hover:text-[#1a1a1a] transition-colors text-[13px] font-medium" href="#">Privacy</Link>
-                        <Link className="text-gray-500 hover:text-[#1a1a1a] transition-colors text-[13px] font-medium" href="#">Terms</Link>
+                        <Link className="text-gray-500 hover:text-[#1a1a1a] transition-colors text-[13px] font-medium" href="/privacy">Privacy</Link>
+                        <Link className="text-gray-500 hover:text-[#1a1a1a] transition-colors text-[13px] font-medium" href="/terms">Terms</Link>
                     </div>
                 </div>
             </div>

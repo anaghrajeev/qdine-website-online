@@ -239,3 +239,37 @@ body {
   animation: float 6s ease-in-out infinite;
   animation-delay: 4s;
 }
+
+/* Dynamic Bento Grid Interaction */
+/* Premium Bento Focus Interaction */
+@media (min-width: 768px) {
+  .bento-inner {
+    position: relative;
+    z-index: 1;
+    user-select: none;
+    transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center center;
+    will-change: transform, filter, opacity;
+  }
+  
+  /* When hovering ANY item in the grid, recess the NON-hovered items */
+  .bento-grid:has(> .bento-item:hover) .bento-item:not(:hover) .bento-inner {
+    filter: blur(4px) grayscale(40%);
+    opacity: 0.4;
+    transform: scale(0.94);
+    z-index: 1;
+  }
+  
+  /* Pop the hovered item forward */
+  .bento-grid .bento-item:hover .bento-inner {
+    transform: scale(1.06);
+    z-index: 10;
+  }
+}
+
+@keyframes progressBar {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}

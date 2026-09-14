@@ -48,7 +48,7 @@ export default function Page() {
                 {/* Image Placeholder */}
                 <div className="reveal-on-scroll order-1 lg:order-2 lg:translate-x-4" style={{ transitionDelay: '100ms' }}>
                     <div className="bg-[#f0f4f8] rounded-[32px] sm:rounded-[40px] aspect-[4/3] overflow-hidden relative shadow-inner border border-black/5 flex items-center justify-center">
-                        <Image src="/images/gg_1.png" alt="Our Mission" fill className="object-cover" />
+                        <Image src="/images/kitchen_img_mock.png" alt="Our Mission" fill className="object-cover" />
                     </div>
                 </div>
             </div>
@@ -95,12 +95,9 @@ export default function Page() {
         </section>
 
         {/* THE IMPACT */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-40 overflow-hidden">
-            <div className="bg-white rounded-[32px] sm:rounded-[48px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-gray-100 p-10 sm:p-16 lg:p-20 reveal-on-scroll relative overflow-hidden">
-                {/* Decorative background blur */}
-                <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#0a714e] opacity-[0.03] rounded-full blur-3xl pointer-events-none"></div>
-                
-                <div className="text-center mb-16 relative z-10">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-40">
+            <div className="reveal-on-scroll relative">
+                <div className="text-center mb-16 sm:mb-24">
                     <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] tracking-tight leading-[1.1] mb-6">
                         The change we're making.
                     </h2>
@@ -109,18 +106,18 @@ export default function Page() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-16 text-center">
                     <div className="flex flex-col items-center">
-                        <div className="text-[48px] sm:text-[64px] font-serif font-medium text-transparent bg-clip-text bg-gradient-to-br from-[#0a714e] to-[#054a32] tracking-tight mb-4">15 min</div>
-                        <p className="text-[16px] text-gray-600 font-medium max-w-[200px] leading-relaxed">Average time from signup to first order taken</p>
+                        <div className="text-[48px] sm:text-[64px] font-serif text-[#1a1a1a] tracking-tight mb-4">15 min</div>
+                        <p className="text-[16px] text-gray-600 font-medium max-w-[220px] leading-relaxed">Average time from signup to first order taken</p>
                     </div>
                     <div className="flex flex-col items-center">
-                        <div className="text-[48px] sm:text-[64px] font-serif font-medium text-transparent bg-clip-text bg-gradient-to-br from-[#1a1a1a] to-[#4a4a4a] tracking-tight mb-4">₹0</div>
-                        <p className="text-[16px] text-gray-600 font-medium max-w-[200px] leading-relaxed">Hardware cost. No POS machines or servers required</p>
+                        <div className="text-[48px] sm:text-[64px] font-serif text-[#1a1a1a] tracking-tight mb-4">₹0</div>
+                        <p className="text-[16px] text-gray-600 font-medium max-w-[220px] leading-relaxed">Hardware cost. No POS machines or servers required</p>
                     </div>
                     <div className="flex flex-col items-center">
-                        <div className="text-[48px] sm:text-[64px] font-serif font-medium text-transparent bg-clip-text bg-gradient-to-br from-[#FF813F] to-[#cc5e25] tracking-tight mb-4">1 shift</div>
-                        <p className="text-[16px] text-gray-600 font-medium max-w-[200px] leading-relaxed">Time for any staff member to master the system</p>
+                        <div className="text-[48px] sm:text-[64px] font-serif text-[#1a1a1a] tracking-tight mb-4">1 shift</div>
+                        <p className="text-[16px] text-gray-600 font-medium max-w-[220px] leading-relaxed">Time for any staff member to master the system</p>
                     </div>
                 </div>
             </div>
