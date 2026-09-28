@@ -9,7 +9,7 @@ export default function PricingPage() {
   const [isBannerExpanded, setIsBannerExpanded] = useState(false);
 
   return (
-    <main className="pt-24 sm:pt-28 lg:pt-40 pb-24 bg-[#fdfaf6]">
+    <main className="pt-24 sm:pt-28 lg:pt-40 pb-24 bg-[#fdfaf6] overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
             {/*  HEADER  */}
@@ -25,8 +25,8 @@ export default function PricingPage() {
 
             {/* BILLING TOGGLE */}
             <div className="flex flex-col items-center gap-6 mb-12 reveal-on-scroll">
-                <div className="flex justify-center items-center gap-4">
-                    <span className={`text-[15px] font-medium transition-colors ${!isAnnual ? 'text-[#1a1a1a]' : 'text-gray-400'}`}>Monthly (+25%)</span>
+                <div className="flex justify-center items-center gap-2 sm:gap-4">
+                    <span className={`text-[13px] sm:text-[15px] font-medium transition-colors ${!isAnnual ? 'text-[#1a1a1a]' : 'text-gray-400'}`}>Monthly (+25%)</span>
                     <button 
                         onClick={() => {
                             setIsAnnual(!isAnnual);
@@ -36,13 +36,13 @@ export default function PricingPage() {
                     >
                         <div className={`absolute top-1 left-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 ${isAnnual ? 'translate-x-6' : 'translate-x-0'}`} />
                     </button>
-                    <span className={`text-[15px] font-medium transition-colors ${isAnnual ? 'text-[#1a1a1a]' : 'text-gray-400'}`}>Yearly (Save 25%)</span>
+                    <span className={`text-[13px] sm:text-[15px] font-medium transition-colors ${isAnnual ? 'text-[#1a1a1a]' : 'text-gray-400'}`}>Yearly (Save 25%)</span>
                 </div>
                 
                 {/* PRINTER BUNDLE TOGGLE */}
-                <div className={`flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all duration-300 ${isAnnual ? (includePrinter ? 'border-[#0a714e] bg-[#0a714e]/5' : 'border-gray-200 bg-white') : 'opacity-50 pointer-events-none border-gray-200 bg-gray-50'}`}>
-                    <span className="material-symbols-outlined text-[20px] text-[#1a1a1a]">print</span>
-                    <span className="text-[14px] font-bold text-[#1a1a1a]">Bundle with Any Printer</span>
+                <div className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2.5 rounded-full border transition-all duration-300 ${isAnnual ? (includePrinter ? 'border-[#0a714e] bg-[#0a714e]/5' : 'border-gray-200 bg-white') : 'opacity-50 pointer-events-none border-gray-200 bg-gray-50'}`}>
+                    <span className="material-symbols-outlined text-[18px] sm:text-[20px] text-[#1a1a1a]">print</span>
+                    <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">Bundle with Any Printer</span>
                     <div className="w-[1px] h-4 bg-gray-300 mx-1"></div>
                     <button 
                         onClick={() => setIncludePrinter(!includePrinter)}
@@ -111,11 +111,11 @@ export default function PricingPage() {
                     {/* Features */}
                     <div className="space-y-8 flex-grow">
                         <div>
-                            <h4 className="text-[15px] font-bold text-[#1a1a1a] mb-1.5">All premium features</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">All premium features</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">Get the most out of Qdine. Experience everything the platform has to offer with zero restrictions.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-[#1a1a1a] mb-1.5">No credit card required</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">No credit card required</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">Simply sign up and start managing your restaurant immediately.</p>
                         </div>
                     </div>
@@ -150,27 +150,27 @@ export default function PricingPage() {
                     <p className="text-[13px] text-white/40 font-semibold uppercase tracking-wider mb-6">Core Features</p>
                     <div className="space-y-8 flex-grow">
                         <div>
-                            <h4 className="text-[15px] font-bold text-white mb-1.5">POS & Table Management</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-1.5">POS & Table Management</h4>
                             <p className="text-[13px] text-white/50 leading-relaxed">Complete control over your floor plan, orders, and checkout process.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-white mb-1.5">Digital Menu & QR Ordering</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-1.5">Digital Menu & QR Ordering</h4>
                             <p className="text-[13px] text-white/50 leading-relaxed">Let guests scan and order instantly from beautifully designed menus.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-white mb-1.5">Products Management</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-1.5">Products Management</h4>
                             <p className="text-[13px] text-white/50 leading-relaxed">Manage your entire catalog, variations, and pricing on the fly.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-white mb-1.5">Sales & Statements</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-1.5">Sales & Statements</h4>
                             <p className="text-[13px] text-white/50 leading-relaxed">Detailed reports and daily statements to track your revenue.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-white mb-1.5">Customised Profile & Branding</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-1.5">Customised Profile & Branding</h4>
                             <p className="text-[13px] text-white/50 leading-relaxed">Make your digital menu match your restaurant's unique brand identity.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-white mb-1.5">10 AI Analyst Credits</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-1.5">10 AI Analyst Credits</h4>
                             <p className="text-[13px] text-white/50 leading-relaxed">Ask our AI questions about your sales, top items, and peak hours every month.</p>
                         </div>
                     </div>
@@ -205,27 +205,27 @@ export default function PricingPage() {
                     <p className="text-[13px] text-gray-400 font-semibold uppercase tracking-wider mb-6">Everything in Essential, plus</p>
                     <div className="space-y-8 flex-grow">
                         <div>
-                            <h4 className="text-[15px] font-bold text-[#1a1a1a] mb-1.5">Comprehensive Inventory</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">Comprehensive Inventory</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">Deep stock management, supplier tracking, and automated low-stock alerts.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-[#1a1a1a] mb-1.5">Customisable Loyalty Points</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">Customisable Loyalty Points</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">Build your own rewards system to turn first-time guests into regulars.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-[#1a1a1a] mb-1.5">30 AI Analyst Credits</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">30 AI Analyst Credits</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">Advanced monthly quota for deep insights, forecasting, and business analysis.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-[#1a1a1a] mb-1.5">Inbuilt Finance Management</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">Inbuilt Finance Management</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">Track expenses, manage vendor payouts, and keep your restaurant's books in perfect order.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-[#1a1a1a] mb-1.5">SOP Builder & Checklists</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">SOP Builder & Checklists</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">Standardize operations with daily checklists and procedures to keep your staff aligned.</p>
                         </div>
                         <div>
-                            <h4 className="text-[15px] font-bold text-[#1a1a1a] mb-1.5">Free Access to New Features</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">Free Access to New Features</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">As our platform grows, you automatically get all new standard features at no extra cost.</p>
                         </div>
                     </div>

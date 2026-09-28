@@ -28,7 +28,7 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold text-[#1a1a1a] text-[13px] mb-4 uppercase tracking-wider">Resources</h4>
                         <ul className="space-y-3">
-                            <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="#">Blog</Link></li>
+                            <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="/blog">Blog</Link></li>
                             <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="#">Guides</Link></li>
                             <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="#">Help Center</Link></li>
                         </ul>
@@ -45,7 +45,7 @@ export default function Footer() {
                 </div>
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-200/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-500 text-[13px] font-medium">© 2025 Devou Solutions LLP. All rights reserved.</p>
+                    <p className="text-gray-500 text-[13px] font-medium">© 2026 <a href="https://devou.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#1a1a1a] transition-colors underline underline-offset-2">Devou Solutions LLP</a>. All rights reserved.</p>
                     <div className="flex gap-6">
                         <Link className="text-gray-500 hover:text-[#1a1a1a] transition-colors text-[13px] font-medium" href="/privacy">Privacy</Link>
                         <Link className="text-gray-500 hover:text-[#1a1a1a] transition-colors text-[13px] font-medium" href="/terms">Terms</Link>

@@ -79,17 +79,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
+              "@type": "WebSite",
               "name": "Qdine",
-              "operatingSystem": "Web",
-              "applicationCategory": "BusinessApplication",
               "url": "https://www.getqdine.com",
-              "description": "Qdine is an intelligent restaurant management platform with AI-powered table management, inventory, digital menus, and analytics.",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-              }
+              "description": "Qdine is an intelligent restaurant management platform with AI-powered table management, inventory, digital menus, and analytics."
             })
           }}
         />

@@ -67,7 +67,7 @@ export default function OnboardingPage() {
                         </Link>
                     </div>
 
-                    <h1 className="text-[32px] sm:text-[40px] font-bold text-[#1a1a1a] tracking-tight mb-2">
+                    <h1 className="font-serif text-[32px] sm:text-[40px] font-bold text-[#1a1a1a] tracking-tight mb-2">
                         Get Started Free
                     </h1>
                     <p className="text-gray-500 mb-8 font-medium">
@@ -155,7 +155,7 @@ export default function OnboardingPage() {
                         <button 
                             type="submit" 
                             disabled={loading}
-                            className="w-full bg-[#0a714e] hover:bg-[#085a3e] text-white py-3.5 rounded-xl font-semibold text-[15px] transition-all duration-200 shadow-sm flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+                            className="w-full bg-[#0a714e] hover:bg-[#085a3e] text-white py-3.5 rounded-full font-semibold text-[15px] transition-all duration-200 shadow-sm flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
                         >
                             {loading ? (
                                 <span className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>

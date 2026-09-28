@@ -83,7 +83,7 @@ export default function AIShowcase() {
                             {currentText}
                             <span className="inline-block w-0.5 h-[1.2em] bg-[#1a1a1a] align-middle ml-1 animate-pulse flex-shrink-0"></span>
                         </div>
-                        <button className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[#00A3FF] hover:bg-[#008AE6] text-white rounded-full flex items-center justify-center transition-colors flex-shrink-0 shadow-md group">
+                        <button className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[#0a714e] hover:bg-[#085a3e] text-white rounded-full flex items-center justify-center transition-colors flex-shrink-0 shadow-md group">
                             <span className="material-symbols-outlined text-[20px] sm:text-[24px] transform group-hover:-translate-y-1 transition-transform">arrow_upward</span>
                         </button>
                     </div>

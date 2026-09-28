@@ -10,11 +10,11 @@ export default function Page() {
     <>
 <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-8 lg:pb-16 overflow-hidden min-h-[80vh] lg:min-h-screen flex flex-col justify-center bg-[#fdfaf6]">
     <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 w-full">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid xl:grid-cols-2 gap-10 xl:gap-16 items-center">
             
             {/* Left Column: Content */}
             <div className="reveal-on-scroll max-w-xl">
-                <h1 className="text-[56px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-medium leading-[1.05] tracking-tight mb-6 text-[#1a1a1a]">
+                <h1 className="text-[60px] sm:text-[64px] md:text-[72px] lg:text-[84px] font-medium leading-[1.05] tracking-tight mb-6 text-[#1a1a1a]">
                     The world's most<br/>
                     <span className="inline-grid [grid-template-columns:1fr] [grid-template-rows:1fr] overflow-hidden align-baseline relative">
                         <span className="col-start-1 row-start-1 font-serif italic font-normal animate-[slideUp1_9s_ease-in-out_infinite] pr-3">intelligent</span>
@@ -54,7 +54,7 @@ export default function Page() {
             </div>
 
             {/* Right Column: Visual */}
-            <div className="relative reveal-on-scroll lg:-translate-y-12" style={{"transitionDelay":"200ms"}}>
+            <div className="relative reveal-on-scroll xl:-translate-y-12" style={{"transitionDelay":"200ms"}}>
                 <div className="rounded-[24px] sm:rounded-[40px] overflow-hidden relative shadow-2xl h-[420px] sm:h-[450px] lg:h-[600px] w-full bg-gray-50 border border-gray-100">
                     <HeroSaaSAnimation />
                 </div>
@@ -88,7 +88,7 @@ export default function Page() {
                     <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
                         <Image src="/images/ai_data_anlyst.png" alt="AI Analyst" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                     </div>
-                    <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
+                    <h3 className="text-[22px] sm:text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
                         Ask anything. Get answers instantly.
                     </h3>
                     <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
@@ -103,7 +103,7 @@ export default function Page() {
                     <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
                         <Image src="/images/tbl_mgmt.png" alt="Table Management" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                     </div>
-                    <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
+                    <h3 className="text-[22px] sm:text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
                         Every seat. Every status. One glance.
                     </h3>
                     <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
@@ -118,7 +118,7 @@ export default function Page() {
                     <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
                         <Image src="/images/product_inv.png" alt="Products & Inventory" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
                     </div>
-                    <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
+                    <h3 className="text-[22px] sm:text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
                         Your entire menu. Mastered.
                     </h3>
                     <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
@@ -174,24 +174,6 @@ export default function Page() {
                 Talk to Sales
             </a>
         </div>
-    </div>
-</section>
-
-{/*  ============================================  */}
-{/*  SEO CONTENT / PRODUCT OVERVIEW  */}
-{/*  ============================================  */}
-<section className="py-16 bg-white border-t border-gray-100">
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-600 space-y-6">
-        <h2 className="text-xl font-bold text-gray-900">Why choose Qdine as your restaurant management system?</h2>
-        <p className="text-[15px] leading-relaxed">
-            Running a successful restaurant requires more than just great food; it requires seamless operations, real-time insights, and an exceptional guest experience. Qdine is built from the ground up to provide restaurant owners and managers with an all-in-one platform that handles everything from table management to advanced inventory tracking. By leveraging artificial intelligence, Qdine transforms raw data into actionable insights, helping you optimize peak hours, reduce wait times, and improve overall profitability.
-        </p>
-        <p className="text-[15px] leading-relaxed">
-            With our integrated digital menu system, guests can browse offerings, view beautiful imagery, and place orders directly from their smartphones, eliminating the need for bulky physical menus and reducing wait staff workload. Meanwhile, the back-of-house team benefits from real-time inventory updates, ensuring that popular items are always in stock and minimizing food waste. Qdine seamlessly integrates with major delivery platforms like Zomato and Swiggy, centralizing all your orders into one easy-to-manage dashboard.
-        </p>
-        <p className="text-[15px] leading-relaxed">
-            Whether you operate a small cafe, a bustling diner, or a multi-location fine-dining establishment, Qdine's cloud-based point-of-sale (POS) and restaurant management software scales with your business. Secure, compliant, and accessible across web, iOS, and Android devices, Qdine is the intelligent choice for modern restaurateurs who want to stay ahead of the curve.
-        </p>
     </div>
 </section>
 

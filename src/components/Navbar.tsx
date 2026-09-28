@@ -34,6 +34,9 @@ export default function Navbar() {
                     <Link className={`text-[15px] transition-colors ${pathname === '/mission' ? 'text-white font-semibold border-b-2 border-white pb-0.5' : 'text-white/80 hover:text-white font-medium'}`} href="/mission">
                         Mission
                     </Link>
+                    <Link className={`text-[15px] transition-colors ${pathname === '/blog' ? 'text-white font-semibold border-b-2 border-white pb-0.5' : 'text-white/80 hover:text-white font-medium'}`} href="/blog">
+                        Blog
+                    </Link>
                 </div>
                 {/* CTA + Mobile Toggle */}
                 <div className="flex items-center gap-3 sm:gap-4">
@@ -79,6 +82,13 @@ export default function Navbar() {
                         onClick={() => setMobileOpen(false)}
                     >
                         Mission
+                    </Link>
+                    <Link 
+                        className={`block py-3 px-4 text-[15px] rounded-xl hover:bg-white/10 transition-colors ${pathname === '/blog' ? 'text-white font-semibold' : 'text-white/80 font-medium'}`} 
+                        href="/blog"
+                        onClick={() => setMobileOpen(false)}
+                    >
+                        Blog
                     </Link>
                     <div className="pt-3 border-t border-white/10 mt-2 space-y-3">
                         <Link className="block py-3 px-4 text-white/80 font-medium text-[15px] rounded-xl hover:bg-white/10 transition-colors" href="/login">
