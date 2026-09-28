@@ -23,11 +23,14 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.getqdine.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: "Qdine — The World's #1 Intelligent Restaurant Management System",
     template: "%s | Qdine",
   },
-  description: "Qdine is the world's most intelligent restaurant management platform. AI-powered table management, inventory, digital menus, and analytics — all in one beautiful system.",
+  description: "Qdine is an intelligent restaurant management platform with AI-powered table management, inventory, digital menus, and analytics.",
   keywords: [
     "restaurant management system",
     "POS",
@@ -71,6 +74,25 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Qdine",
+              "operatingSystem": "Web",
+              "applicationCategory": "BusinessApplication",
+              "url": "https://www.getqdine.com",
+              "description": "Qdine is an intelligent restaurant management platform with AI-powered table management, inventory, digital menus, and analytics.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            })
+          }}
+        />
       </head>
       <body className={`${jakarta.variable} ${inter.variable} ${playfair.variable} antialiased min-h-screen flex flex-col overflow-x-hidden`}>
         <Navbar />

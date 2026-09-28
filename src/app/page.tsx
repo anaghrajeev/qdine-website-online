@@ -3,6 +3,7 @@ import Image from 'next/image';
 import AIShowcase from '@/components/AIShowcase';
 import HeroSaaSAnimation from '@/components/HeroSaaSAnimation';
 import HowItWorksInteractive from '@/components/HowItWorksInteractive';
+import BookDemoButton from '@/components/BookDemoButton';
 
 export default function Page() {
   return (
@@ -13,7 +14,7 @@ export default function Page() {
             
             {/* Left Column: Content */}
             <div className="reveal-on-scroll max-w-xl">
-                <h1 className="text-[44px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-medium leading-[1.05] tracking-tight mb-6 text-[#1a1a1a]">
+                <h1 className="text-[56px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-medium leading-[1.05] tracking-tight mb-6 text-[#1a1a1a]">
                     The world's most<br/>
                     <span className="inline-grid [grid-template-columns:1fr] [grid-template-rows:1fr] overflow-hidden align-baseline relative">
                         <span className="col-start-1 row-start-1 font-serif italic font-normal animate-[slideUp1_9s_ease-in-out_infinite] pr-3">intelligent</span>
@@ -29,10 +30,8 @@ export default function Page() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
-                    <Link className="bg-[#111111] hover:bg-black text-white px-6 sm:px-8 py-3.5 rounded-full font-medium text-[15px] transition-all duration-200 flex items-center justify-center sm:w-max shadow-sm" href="#">
-                        Book a demo
-                    </Link>
-                    <Link className="bg-white hover:bg-gray-50 text-[#1a1a1a] px-6 sm:px-8 py-3.5 rounded-full font-medium text-[15px] transition-all duration-200 border border-gray-200 flex items-center justify-center gap-2 sm:w-max shadow-sm" href="#">
+                    <BookDemoButton />
+                    <Link className="bg-white hover:bg-gray-50 text-[#1a1a1a] px-6 sm:px-8 py-3.5 rounded-full font-medium text-[15px] transition-all duration-200 border border-gray-200 flex items-center justify-center gap-2 sm:w-max shadow-sm" href="/onboarding">
                         <span className="material-symbols-outlined text-[18px]">grid_view</span>
                         Start for free
                     </Link>
@@ -56,7 +55,7 @@ export default function Page() {
 
             {/* Right Column: Visual */}
             <div className="relative reveal-on-scroll lg:-translate-y-12" style={{"transitionDelay":"200ms"}}>
-                <div className="rounded-[24px] sm:rounded-[40px] overflow-hidden relative shadow-2xl h-[350px] sm:h-[450px] lg:h-[600px] w-full bg-gray-50 border border-gray-100">
+                <div className="rounded-[24px] sm:rounded-[40px] overflow-hidden relative shadow-2xl h-[420px] sm:h-[450px] lg:h-[600px] w-full bg-gray-50 border border-gray-100">
                     <HeroSaaSAnimation />
                 </div>
             </div>
@@ -167,7 +166,7 @@ export default function Page() {
             Join 500+ restaurant owners who've already made the switch. Start your free trial today — no credit card required, no contracts, no excuses.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a className="bg-[#111111] hover:bg-black text-white px-10 py-4 rounded-full font-medium text-[16px] transition-all duration-300 shadow-sm flex items-center justify-center gap-2 group" href="#">
+            <a className="bg-[#111111] hover:bg-black text-white px-10 py-4 rounded-full font-medium text-[16px] transition-all duration-300 shadow-sm flex items-center justify-center gap-2 group" href="/onboarding">
                 Start your free trial
                 <span className="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
@@ -179,6 +178,22 @@ export default function Page() {
 </section>
 
 {/*  ============================================  */}
+{/*  SEO CONTENT / PRODUCT OVERVIEW  */}
+{/*  ============================================  */}
+<section className="py-16 bg-white border-t border-gray-100">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-600 space-y-6">
+        <h2 className="text-xl font-bold text-gray-900">Why choose Qdine as your restaurant management system?</h2>
+        <p className="text-[15px] leading-relaxed">
+            Running a successful restaurant requires more than just great food; it requires seamless operations, real-time insights, and an exceptional guest experience. Qdine is built from the ground up to provide restaurant owners and managers with an all-in-one platform that handles everything from table management to advanced inventory tracking. By leveraging artificial intelligence, Qdine transforms raw data into actionable insights, helping you optimize peak hours, reduce wait times, and improve overall profitability.
+        </p>
+        <p className="text-[15px] leading-relaxed">
+            With our integrated digital menu system, guests can browse offerings, view beautiful imagery, and place orders directly from their smartphones, eliminating the need for bulky physical menus and reducing wait staff workload. Meanwhile, the back-of-house team benefits from real-time inventory updates, ensuring that popular items are always in stock and minimizing food waste. Qdine seamlessly integrates with major delivery platforms like Zomato and Swiggy, centralizing all your orders into one easy-to-manage dashboard.
+        </p>
+        <p className="text-[15px] leading-relaxed">
+            Whether you operate a small cafe, a bustling diner, or a multi-location fine-dining establishment, Qdine's cloud-based point-of-sale (POS) and restaurant management software scales with your business. Secure, compliant, and accessible across web, iOS, and Android devices, Qdine is the intelligent choice for modern restaurateurs who want to stay ahead of the curve.
+        </p>
+    </div>
+</section>
 
     </>
   );

@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 export default function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(true);
+  const [includePrinter, setIncludePrinter] = useState(false);
+  const [isBannerExpanded, setIsBannerExpanded] = useState(false);
 
   return (
     <main className="pt-24 sm:pt-28 lg:pt-40 pb-24 bg-[#fdfaf6]">
@@ -22,16 +24,70 @@ export default function PricingPage() {
             </div>
 
             {/* BILLING TOGGLE */}
-            <div className="flex justify-center items-center gap-4 mb-16 reveal-on-scroll">
-                <span className={`text-[15px] font-medium transition-colors ${!isAnnual ? 'text-[#1a1a1a]' : 'text-gray-400'}`}>Monthly (+25%)</span>
-                <button 
-                    onClick={() => setIsAnnual(!isAnnual)}
-                    className="relative w-14 h-8 rounded-full bg-[#111111] transition-colors focus:outline-none"
-                >
-                    <div className={`absolute top-1 left-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 ${isAnnual ? 'translate-x-6' : 'translate-x-0'}`} />
-                </button>
-                <span className={`text-[15px] font-medium transition-colors ${isAnnual ? 'text-[#1a1a1a]' : 'text-gray-400'}`}>Yearly (Save 25%)</span>
+            <div className="flex flex-col items-center gap-6 mb-12 reveal-on-scroll">
+                <div className="flex justify-center items-center gap-4">
+                    <span className={`text-[15px] font-medium transition-colors ${!isAnnual ? 'text-[#1a1a1a]' : 'text-gray-400'}`}>Monthly (+25%)</span>
+                    <button 
+                        onClick={() => {
+                            setIsAnnual(!isAnnual);
+                            if (isAnnual) setIncludePrinter(false);
+                        }}
+                        className="relative w-14 h-8 rounded-full bg-[#111111] transition-colors focus:outline-none"
+                    >
+                        <div className={`absolute top-1 left-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 ${isAnnual ? 'translate-x-6' : 'translate-x-0'}`} />
+                    </button>
+                    <span className={`text-[15px] font-medium transition-colors ${isAnnual ? 'text-[#1a1a1a]' : 'text-gray-400'}`}>Yearly (Save 25%)</span>
+                </div>
+                
+                {/* PRINTER BUNDLE TOGGLE */}
+                <div className={`flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all duration-300 ${isAnnual ? (includePrinter ? 'border-[#0a714e] bg-[#0a714e]/5' : 'border-gray-200 bg-white') : 'opacity-50 pointer-events-none border-gray-200 bg-gray-50'}`}>
+                    <span className="material-symbols-outlined text-[20px] text-[#1a1a1a]">print</span>
+                    <span className="text-[14px] font-bold text-[#1a1a1a]">Bundle with Any Printer</span>
+                    <div className="w-[1px] h-4 bg-gray-300 mx-1"></div>
+                    <button 
+                        onClick={() => setIncludePrinter(!includePrinter)}
+                        disabled={!isAnnual}
+                        className={`relative w-10 h-5 rounded-full transition-colors focus:outline-none ${includePrinter ? 'bg-[#0a714e]' : 'bg-gray-300'}`}
+                    >
+                        <div className={`absolute top-0.5 left-0.5 bg-white w-4 h-4 rounded-full transition-transform duration-300 ${includePrinter ? 'translate-x-5' : 'translate-x-0'}`} />
+                    </button>
+                </div>
             </div>
+
+            {/* BANNER */}
+            <div 
+                className="max-w-5xl mx-auto mb-16 reveal-on-scroll cursor-pointer group relative"
+                onClick={() => setIsBannerExpanded(true)}
+            >
+                <img src="/images/banner.png" alt="POS Terminals Banner" className="w-full rounded-2xl shadow-sm border border-gray-100" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors rounded-2xl flex items-center justify-center">
+                    <div className="bg-white/90 backdrop-blur-sm text-black px-4 py-2 rounded-full font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity md:hidden">
+                        Tap to expand
+                    </div>
+                </div>
+            </div>
+
+            {/* EXPANDED BANNER MODAL */}
+            {isBannerExpanded && (
+                <div 
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+                    onClick={() => setIsBannerExpanded(false)}
+                >
+                    <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+                        <button 
+                            className="absolute -top-12 right-0 md:-right-10 md:top-0 text-white hover:text-gray-300 bg-white/20 hover:bg-white/30 backdrop-blur-md w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+                            onClick={() => setIsBannerExpanded(false)}
+                        >
+                            <span className="material-symbols-outlined text-[24px]">close</span>
+                        </button>
+                        <img 
+                            src="/images/banner.png" 
+                            alt="POS Terminals Banner Expanded" 
+                            className="w-full rounded-xl shadow-2xl object-contain max-h-[85vh]" 
+                        />
+                    </div>
+                </div>
+            )}
 
             {/*  PRICING CARDS  */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-5xl mx-auto mb-20 sm:mb-32 reveal-on-scroll" style={{"transitionDelay":"150ms"}}>
@@ -67,15 +123,20 @@ export default function PricingPage() {
 
                 {/*  PLAN 2: PROFESSIONAL (HERO)  */}
                 <div className="bg-[#111111] border border-[#111111] p-8 sm:p-10 flex flex-col relative z-10 md:shadow-2xl md:-my-4 md:rounded-3xl">
-                    <div className="mb-8">
-                        <h3 className="text-[22px] font-bold text-white mb-2">Essential</h3>
+                    <div className="mb-8 flex flex-col items-start">
+                        <div className="flex justify-between w-full items-start">
+                            <h3 className="text-[22px] font-bold text-white mb-2">Essential</h3>
+                            {includePrinter && isAnnual && (
+                                <span className="bg-[#0a714e] text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Printer Bundle</span>
+                            )}
+                        </div>
                         <p className="text-[14px] text-white/50 leading-relaxed">
-                            Everything you need to run your daily operations smoothly.
+                            Everything you need to run your daily operations smoothly. {includePrinter && isAnnual && "Includes any printer of your choice."}
                         </p>
                     </div>
                     <div className="flex items-baseline gap-1 mb-8">
                         <span className="text-[48px] font-bold text-white tracking-tight">
-                            {isAnnual ? '₹4,999' : '₹520'}
+                            {isAnnual ? (includePrinter ? '₹11,999' : '₹6,999') : '₹520'}
                         </span>
                         <span className="text-[15px] text-white/40 font-medium">
                             {isAnnual ? '/year' : '/month'}
@@ -117,15 +178,20 @@ export default function PricingPage() {
 
                 {/*  PLAN 3: ENTERPRISE  */}
                 <div className="bg-white border border-gray-200 rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none p-8 sm:p-10 flex flex-col">
-                    <div className="mb-8">
-                        <h3 className="text-[22px] font-bold text-[#1a1a1a] mb-2">Premium</h3>
+                    <div className="mb-8 flex flex-col items-start">
+                        <div className="flex justify-between w-full items-start">
+                            <h3 className="text-[22px] font-bold text-[#1a1a1a] mb-2">Premium</h3>
+                            {includePrinter && isAnnual && (
+                                <span className="bg-[#0a714e]/10 text-[#0a714e] text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Printer Bundle</span>
+                            )}
+                        </div>
                         <p className="text-[14px] text-gray-500 leading-relaxed">
-                            Advanced tools to scale your restaurant and build customer loyalty.
+                            Advanced tools to scale your restaurant and build customer loyalty. {includePrinter && isAnnual && "Includes any printer of your choice."}
                         </p>
                     </div>
                     <div className="flex items-baseline gap-1 mb-8">
                         <span className="text-[48px] font-bold text-[#1a1a1a] tracking-tight">
-                            {isAnnual ? '₹7,999' : '₹833'}
+                            {isAnnual ? (includePrinter ? '₹13,999' : '₹8,999') : '₹833'}
                         </span>
                         <span className="text-[15px] text-gray-400 font-medium">
                             {isAnnual ? '/year' : '/month'}

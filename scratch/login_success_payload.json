@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiIwYWUxMDFmOC1kNzQxLTRiYTgtYjc1Yy03MTY4OTU0MDE4ZmIiLCJlbWFpbCI6ImRldm91LmluQGdtYWlsLmNvbSIsIm5hbWUiOiJTeXN0ZW0gQWRtaW4iLCJpc0FkbWluIjp0cnVlLCJwZXJtaXNzaW9ucyI6WyIqIl0sInJlc3RhdXJhbnRJZCI6ImE4ZTc3OGU3LTYyMzUtNGEwYi04NDQ4LTdmMGQ3NDE4YmRiZCIsImlhdCI6MTc5MDE1NjYxMSwiZXhwIjoxNzkwMjQzMDExfQ.ilrFwpZvEIXVKtkuffQJvIgs2F4VXma3rKR0F6iIJ2Q",
+  "user": {
+    "id": "0ae101f8-d741-4ba8-b75c-7168954018fb",
+    "email": "devou.in@gmail.com",
+    "name": "System Admin",
+    "role": "ADMIN",
+    "permissions": [
+      "*"
+    ],
+    "is_admin": true
+  }
+}
