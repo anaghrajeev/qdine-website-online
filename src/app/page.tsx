@@ -82,63 +82,94 @@ export default function Page() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 bento-grid">
-            {/* Feature 1 */}
+            {/* Feature 1: Table Management */}
             <div className="reveal-on-scroll bento-item">
                 <div className="flex flex-col h-full bento-inner">
-                    <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                        <Image src="/images/ai_data_anlyst.png" alt="AI Analyst" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+                    <div className="rounded-[28px] overflow-hidden aspect-[4/3] mb-8 bg-gradient-to-b from-[#f7faf8] to-[#edf3ef] flex items-center justify-center border border-[#0a714e]/[0.08] shadow-sm relative p-6 sm:p-8 group hover:border-[#0a714e]/25 transition-all duration-500">
+                        <div className="relative w-[90%] h-[90%] flex items-center justify-center">
+                            <Image 
+                                src="/images/mgmt_tbl.png" 
+                                alt="Table & Seating Management" 
+                                fill 
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover:scale-105 transition-transform duration-500 ease-out" 
+                            />
+                        </div>
                     </div>
                     <h3 className="text-[22px] sm:text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
-                        Ask anything. Get answers instantly.
+                        Every table. In real time.
                     </h3>
                     <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
-                        Qdine AI Analyst understands your sales, orders, peak hours, and inventory. Just ask a question — in plain English — and get data-driven answers in seconds. It's like having a business analyst who never sleeps.
+                        Live seat capacity, occupied tables, and running tabs at a glance. Spot open seats the second guests walk in and track kitchen prep status without leaving the floor.
                     </p>
                 </div>
             </div>
 
-            {/* Feature 2 */}
+            {/* Feature 2: Kitchen & Order Sync */}
             <div className="reveal-on-scroll bento-item" style={{"transitionDelay":"100ms"}}>
                 <div className="flex flex-col h-full bento-inner">
-                    <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                        <Image src="/images/tbl_mgmt.png" alt="Table Management" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+                    <div className="rounded-[28px] overflow-hidden aspect-[4/3] mb-8 bg-gradient-to-b from-[#f7faf8] to-[#edf3ef] flex items-center justify-center border border-[#0a714e]/[0.08] shadow-sm relative p-6 sm:p-8 group hover:border-[#0a714e]/25 transition-all duration-500">
+                        <div className="relative w-[92%] h-[92%] flex items-center justify-center">
+                            <Image 
+                                src="/images/counterwise.png" 
+                                alt="Kitchen Order Tracking" 
+                                fill 
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover:scale-105 transition-transform duration-500 ease-out" 
+                            />
+                        </div>
                     </div>
                     <h3 className="text-[22px] sm:text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
-                        Every seat. Every status. One glance.
+                        Kitchen to counter. In perfect sync.
                     </h3>
                     <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
-                        See which tables are occupied, available, or waiting. Track active orders and revenue per table in real time. Add tables, generate QR codes, and manage capacities — all from a single, beautiful dashboard.
+                        Follow orders from the kitchen pass to the table item by item. Real-time served badges keep front-of-house and back-of-house operating as one, eliminating delays.
                     </p>
                 </div>
             </div>
 
-            {/* Feature 3 */}
+            {/* Feature 3: Billing & Multi-method Checkout */}
             <div className="reveal-on-scroll bento-item" style={{"transitionDelay":"100ms"}}>
                 <div className="flex flex-col h-full bento-inner">
-                    <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                        <Image src="/images/product_inv.png" alt="Products & Inventory" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+                    <div className="rounded-[28px] overflow-hidden aspect-[4/3] mb-8 bg-gradient-to-b from-[#f7faf8] to-[#edf3ef] flex items-center justify-center border border-[#0a714e]/[0.08] shadow-sm relative p-6 sm:p-8 group hover:border-[#0a714e]/25 transition-all duration-500">
+                        <div className="relative w-[92%] h-[92%] flex items-center justify-center">
+                            <Image 
+                                src="/images/pay_method.png" 
+                                alt="Payment Methods" 
+                                fill 
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover:scale-105 transition-transform duration-500 ease-out" 
+                            />
+                        </div>
                     </div>
                     <h3 className="text-[22px] sm:text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
-                        Your entire menu. Mastered.
+                        Split, tap, settle. In seconds.
                     </h3>
                     <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
-                        Manage every item, category, price, and stock level with precision. Visual status indicators — Available, Low Stock, Out of Stock — keep you one step ahead. Upload your menu via a photo or add items one by one.
+                        Settle checks on your guest’s terms. Collect payments seamlessly via UPI QR, card, cash, or flexible bill splits with a single tap to keep table turnover brisk.
                     </p>
                 </div>
             </div>
 
-
-            {/* Feature 4 */}
+            {/* Feature 4: Recipe & Inventory Control */}
             <div className="reveal-on-scroll bento-item" style={{"transitionDelay":"200ms"}}>
                 <div className="flex flex-col h-full bento-inner">
-                    <div className="rounded-[24px] overflow-hidden aspect-[4/3] mb-8 bg-[#e8f1fb] flex items-center justify-center shadow-sm border border-black/5 relative">
-                        <Image src="/images/p_pad_menu.png" alt="Digital Menu" fill className="object-contain scale-[1.25] hover:scale-[1.30] transition-transform duration-700" />
+                    <div className="rounded-[28px] overflow-hidden aspect-[4/3] mb-8 bg-gradient-to-b from-[#f7faf8] to-[#edf3ef] flex items-center justify-center border border-[#0a714e]/[0.08] shadow-sm relative p-6 sm:p-8 group hover:border-[#0a714e]/25 transition-all duration-500">
+                        <div className="relative w-[92%] h-[92%] flex items-center justify-center">
+                            <Image 
+                                src="/images/product_inv.png" 
+                                alt="Recipe-level Inventory" 
+                                fill 
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.08)] group-hover:scale-105 transition-transform duration-500 ease-out" 
+                            />
+                        </div>
                     </div>
-                    <h3 className="text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
-                        A menu your guests will love.
+                    <h3 className="text-[22px] sm:text-[24px] font-bold text-[#1a1a1a] mb-3 tracking-tight">
+                        Recipe-linked stock. Automated.
                     </h3>
                     <p className="text-gray-600 text-[16px] leading-relaxed pr-4">
-                        Your customers scan a QR code and get a stunning, mobile-first digital menu. They browse, search, filter by category, and order — all from their phone. No app downloads. No waiting for the waiter. Just pure, frictionless dining.
+                        Link recipes directly to menu items so every order automatically deducts raw ingredients from inventory. Prevent stockouts and protect your margins effortlessly.
                     </p>
                 </div>
             </div>

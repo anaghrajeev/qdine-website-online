@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function OnboardingPage() {
+    const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
@@ -28,17 +30,27 @@ export default function OnboardingPage() {
             });
             const data = await res.json();
 
-            if (res.ok && data.success) {
-                // Automatically redirect to the created admin portal
-                // For test environment, it could be relative or absolute, handle accordingly
-                const portalUrl = data.data.urls.admin_portal;
-                if (portalUrl.startsWith('http')) {
-                    window.location.href = portalUrl;
+            if (res.ok && data.success !== false) {
+                // Safely extract redirect URL
+                const portalUrl = data?.data?.urls?.admin_portal || data?.redirect_url || data?.url;
+                
+                if (portalUrl) {
+                    if (portalUrl.startsWith('http')) {
+                        window.location.href = portalUrl;
+                    } else {
+                        const path = portalUrl.startsWith('/') ? portalUrl : `/${portalUrl}`;
+                        window.location.href = `https://test.getqdine.com${path}`;
+                    }
                 } else {
-                    window.location.href = `https://test.getqdine.com${portalUrl}`;
+                    const slug = data?.data?.slug || data?.slug;
+                    if (slug) {
+                        window.location.href = `https://test.getqdine.com/${slug}/admin/orders`;
+                    } else {
+                        window.location.href = 'https://test.getqdine.com/admin';
+                    }
                 }
             } else {
-                setError(data.error || 'Failed to create restaurant');
+                setError(data.error || data.message || 'Failed to create restaurant');
             }
         } catch (err) {
             console.error('Registration error:', err);

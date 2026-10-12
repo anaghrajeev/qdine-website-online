@@ -6,20 +6,20 @@ import Image from 'next/image';
 const steps = [
   {
     id: 1,
-    title: 'Take orders instantly.',
-    desc: 'Tap to add items, customize variations, and assign tables. Fire orders directly to the kitchen in seconds without missing a beat.',
+    title: 'Take orders with live stock.',
+    desc: 'Browse categories with instant stock badges (Available, Low Stock, Out of Stock) for fast, zero-error order punching.',
     image: '/images/1.png'
   },
   {
     id: 2,
-    title: 'Command the floor.',
-    desc: 'Real-time ticket tracking keeps your front-of-house and kitchen in perfect sync. Always know exactly what\'s preparing and what\'s ready.',
+    title: 'Command tables & live occupancy.',
+    desc: 'Track seat availability, occupied tables, and running bill totals across your floor at a single glance.',
     image: '/images/2.png'
   },
   {
     id: 3,
-    title: 'Close tables faster.',
-    desc: 'From splitting complex checks to applying quick discounts and accepting payments — settling the bill has never been smoother.',
+    title: 'Print KOTs & settle bills fast.',
+    desc: 'Check kitchen fulfillment, print KOTs or receipts in one tap, and collect payments via UPI QR, Cash, Card, or Split.',
     image: '/images/3.png'
   }
 ];
@@ -85,7 +85,7 @@ export default function HowItWorksInteractive() {
 
                 {/* Right side: Image Display */}
                 <div className="lg:col-span-7 reveal-on-scroll" style={{ transitionDelay: '200ms' }}>
-                    <div className="bg-[#f0f4f8] rounded-[32px] sm:rounded-[40px] aspect-[4/3] relative shadow-inner border border-black/5 flex items-center justify-center overflow-hidden group">
+                    <div className="aspect-[4/3] relative flex items-center justify-center">
                         {steps.map((step, index) => (
                             <div 
                                 key={step.id} 
@@ -95,12 +95,13 @@ export default function HowItWorksInteractive() {
                                     : 'opacity-0 scale-[0.95] z-0 pointer-events-none'
                                 }`}
                             >
-                                <div className="relative w-[96%] h-[96%] animate-float">
+                                <div className="relative w-full h-full animate-float flex items-center justify-center">
                                     <Image 
                                         src={step.image} 
                                         alt={step.title} 
                                         fill 
-                                        className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] scale-[1.50] transition-transform duration-[1.5s] ease-out group-hover:scale-[1.55]" 
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
+                                        className="object-contain scale-[1.35] lg:scale-[1.42] transition-transform duration-700 ease-out hover:scale-[1.45]" 
                                         priority={index === 0}
                                     />
                                 </div>

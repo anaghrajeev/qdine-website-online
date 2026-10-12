@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiZGEyZWNmNi1hODg5LTRhMTctYTFiYi1hY2VhYjdiMGI2YzkiLCJlbWFpbCI6Im93bmVyQGdtYWlsLmNvbSIsIm5hbWUiOiJBTkFHSCBSQUpFRVYgQWRtaW4iLCJpc0FkbWluIjp0cnVlLCJwZXJtaXNzaW9ucyI6WyIqIl0sInJlc3RhdXJhbnRJZCI6ImFjNGZmYzJjLTJjNDctNGVmMi04MDFkLTA0ZTgyYjYwMjc1NCIsInJlc3RhdXJhbnRTbHVnIjoiYW5hZ2gtcmFqZWV2IiwicmVzdGF1cmFudE5hbWUiOiJBTkFHSCBSQUpFRVYiLCJpYXQiOjE3OTA4NDg1NzksImV4cCI6MTc5MDkzNDk3OX0.9CSJaCryDZC4rk93qjknp2yeA8Ic3_9_ZvZc7cwHu8Y",
+  "slug": "anagh-rajeev",
+  "redirect_url": "/anagh-rajeev/admin/orders",
+  "user": {
+    "id": "bda2ecf6-a889-4a17-a1bb-aceab7b0b6c9",
+    "email": "owner@gmail.com",
+    "name": "ANAGH RAJEEV Admin",
+    "role": "ADMIN",
+    "permissions": [
+      "*"
+    ],
+    "is_admin": true,
+    "restaurant_id": "ac4ffc2c-2c47-4ef2-801d-04e82b602754",
+    "restaurant_slug": "anagh-rajeev",
+    "restaurant_name": "ANAGH RAJEEV"
+  }
+}
