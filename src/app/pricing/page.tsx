@@ -191,7 +191,7 @@ export default function PricingPage() {
                     </div>
                     <div className="flex items-baseline gap-1 mb-8">
                         <span className="text-[48px] font-bold text-[#1a1a1a] tracking-tight">
-                            {isAnnual ? (includePrinter ? '₹13,999' : '₹8,999') : '₹999'}
+                            {isAnnual ? (includePrinter ? '₹14,999' : '₹9,999') : '₹1,111'}
                         </span>
                         <span className="text-[15px] text-gray-400 font-medium">
                             {isAnnual ? '/year' : '/month'}
