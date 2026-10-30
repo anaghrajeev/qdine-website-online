@@ -1,6 +1,13 @@
 import Image from 'next/image';
 
-const features = [
+const features: {
+  headline: string;
+  description: string;
+  bullets: string[];
+  image: string;
+  imageAlt: string;
+  bleed?: boolean;
+}[] = [
   {
     headline: 'Manage Orders, effortlessly',
     description:
@@ -10,8 +17,9 @@ const features = [
       'Send orders directly to kitchen',
       'Reduce KOT and billing errors',
     ],
-    image: '/images/1.png',
-    imageAlt: 'Order management interface',
+    image: '/images/cn-pos.png',
+    imageAlt: 'Point of sale order management interface',
+    bleed: true,
   },
   {
     headline: 'Every table, at a glance',
@@ -22,8 +30,9 @@ const features = [
       'Dynamic table QR codes',
       'Running tab per table',
     ],
-    image: '/images/mgmt_tbl.png',
-    imageAlt: 'Table management view',
+    image: '/images/cn-table.png',
+    imageAlt: 'Table and floor management view',
+    bleed: true,
   },
   {
     headline: 'Kitchen to counter, in perfect sync',
@@ -34,8 +43,9 @@ const features = [
       'Item-by-item served tracking',
       'Front & back-of-house sync',
     ],
-    image: '/images/counterwise.png',
-    imageAlt: 'Kitchen display system',
+    image: '/images/cn-kot.png',
+    imageAlt: 'Kitchen order ticket management interface',
+    bleed: true,
   },
   {
     headline: 'Easy billing',
@@ -162,17 +172,29 @@ export default function FeatureShowcase() {
 
                     {/* Image */}
                     <div
-                      className={`relative bg-gradient-to-br from-gray-50 to-gray-100/50 ${
-                        isReversed ? 'lg:order-1' : 'lg:order-2'
-                      }`}
+                      className={`relative overflow-hidden ${
+                        feature.bleed
+                          ? 'bg-[#0a714e]/5 flex items-center justify-center'
+                          : 'bg-gradient-to-br from-gray-50 to-gray-100/50'
+                      } ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}
                     >
-                      <div className="relative aspect-[4/3] lg:aspect-[5/4]">
+                      <div
+                        className={`relative w-full ${
+                          feature.bleed
+                            ? 'aspect-square'
+                            : 'aspect-[4/3] lg:aspect-[5/4]'
+                        }`}
+                      >
                         <Image
                           src={feature.image}
                           alt={feature.imageAlt}
                           fill
                           sizes="(max-width: 1024px) 100vw, 50vw"
-                          className="object-contain p-6 sm:p-10"
+                          className={
+                            feature.bleed
+                              ? 'object-cover'
+                              : 'object-contain p-6 sm:p-10'
+                          }
                         />
                       </div>
                     </div>
