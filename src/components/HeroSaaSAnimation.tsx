@@ -43,20 +43,6 @@ export default function HeroSaaSAnimation() {
                     <span className="font-semibold text-gray-800 text-[13px] sm:text-[14px]">Qdine AI Analyst</span>
                     <div className="w-2 h-2 rounded-full border-2 border-yellow-400"></div>
                 </div>
-                <div className="flex gap-1.5">
-                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span className="material-symbols-outlined text-[15px] transform scale-[0.75]">magic_button</span>
-                    </div>
-                    <div className="w-7 h-7 rounded-[6px] border border-red-100 bg-red-50 flex items-center justify-center text-red-500 shadow-sm cursor-pointer hover:bg-red-100 transition-colors">
-                        <span className="material-symbols-outlined text-[15px] transform scale-[0.75]">delete_outline</span>
-                    </div>
-                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span className="material-symbols-outlined text-[15px] transform scale-[0.75]">close_fullscreen</span>
-                    </div>
-                    <div className="w-7 h-7 rounded-[6px] border border-gray-200 bg-[#f8fafc] flex items-center justify-center text-gray-600 shadow-sm cursor-pointer hover:bg-gray-100 transition-colors">
-                        <span className="material-symbols-outlined text-[15px] transform scale-[0.75]">close</span>
-                    </div>
-                </div>
             </div>
 
             {/* Chat Body */}
