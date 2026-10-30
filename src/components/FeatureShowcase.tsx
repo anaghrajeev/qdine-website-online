@@ -48,52 +48,30 @@ const features: {
     bleed: true,
   },
   {
-    headline: 'Easy billing',
+    headline: 'Live Kitchen Display System (KDS)',
     description:
-      'Fast, error-free billing to speed up checkout. Split checks, accept UPI, card, or cash\u2014all from one screen.',
+      'Keep cooks, expeditor, and counter aligned with real-time order queues, active prep timers, and instant fulfillment tags.',
     bullets: [
-      'UPI QR, card & cash payments',
-      'Flexible check splitting',
-      'Auto GST-compliant invoices',
+      'Real-time order queue & ticket statuses',
+      'Instant prep stage updates',
+      'Zero missing or duplicate orders',
     ],
-    image: '/images/pay_method.png',
-    imageAlt: 'Billing and payment interface',
+    image: '/images/cn-orders.png',
+    imageAlt: 'Kitchen Display System active orders',
+    bleed: true,
   },
   {
-    headline: 'Inventory Management',
+    headline: 'Actionable Analytics & Reports',
     description:
-      'Link recipes to menu items so every order auto-deducts raw ingredients. Get alerts before stock runs low.',
+      'Get granular visibility into revenue, top-selling items, peak operational hours, and staff performance in real time.',
     bullets: [
-      'Recipe-linked stock deduction',
-      'Low-stock buffer alerts',
-      'Purchase order tracking',
+      'Daily revenue & sales breakdown',
+      'Menu item performance insights',
+      'Peak hours & turnover metrics',
     ],
-    image: '/images/product_inv.png',
-    imageAlt: 'Inventory management dashboard',
-  },
-  {
-    headline: 'Print KOTs & settle bills, fast',
-    description:
-      'One-tap KOT printing, receipt generation, and checkout. The last mile of every order, handled in seconds.',
-    bullets: [
-      'One-tap KOT printing',
-      'Digital & printed receipts',
-      'Multi-method settlement',
-    ],
-    image: '/images/3.png',
-    imageAlt: 'KOT and billing checkout flow',
-  },
-  {
-    headline: 'Command your entire floor',
-    description:
-      'Bird\u2019s-eye view of table occupancy, running orders, and bill totals. Everything your floor manager needs on one screen.',
-    bullets: [
-      'Real-time floor overview',
-      'Occupancy heatmap',
-      'Running order totals',
-    ],
-    image: '/images/2.png',
-    imageAlt: 'Floor management overview',
+    image: '/images/cn-reports.png',
+    imageAlt: 'Restaurant analytics and reports dashboard',
+    bleed: true,
   },
 ];
 
