@@ -24,8 +24,9 @@ Here is the complete step-by-step walkthrough to get QZ Tray installed, running 
 
 ## Step 1: Download QZ Tray
 
-1. Head to the official QZ Tray website at [qz.io/download](https://qz.io/download) or click the **Download QZ Tray ↗** shortcut directly inside your Qdine POS Hardware settings.
-2. Select the installer suitable for your operating system (Windows, macOS, or Linux). For most restaurant counter PCs, download the latest stable Windows **.exe** installer (v2.2.x or newer).
+1. Download the pre-configured QZ Tray installer for your billing PC directly using this link:  
+   👉 **[Download QZ Tray Setup (Direct Download .exe)](https://pqmn2e8cqgprbrtd.public.blob.vercel-storage.com/QZTray-Setup.exe)**
+2. Save the setup executable (`QZTray-Setup.exe`) to your system (e.g., in your Downloads folder or on your Desktop).
 
 ---
 
@@ -33,7 +34,7 @@ Here is the complete step-by-step walkthrough to get QZ Tray installed, running 
 
 Once the installer is downloaded to your machine:
 
-1. Double-click the downloaded setup executable (e.g., `qz-tray-2.2.5.exe`) to start the setup wizard.
+1. Double-click the downloaded setup file (`QZTray-Setup.exe`) to start the setup wizard.
 2. If prompted by Windows User Account Control (UAC), click **Yes** to grant installation permissions.
 3. Review the license agreement and select your installation directory.
 4. When you reach the **Select Additional Tasks** screen, ensure that **Create a Desktop shortcut** is checked. This ensures quick access whenever you need to restart or inspect the service.
