@@ -41,7 +41,7 @@ export default function HeroSaaSAnimation() {
                         <Image src="/images/qdine-logo.jpg" alt="Qdine Logo" fill className="object-cover" />
                     </div>
                     <span className="font-semibold text-gray-800 text-[13px] sm:text-[14px]">Qdine AI Analyst</span>
-                    <div className="w-2 h-2 rounded-full border-2 border-yellow-400"></div>
+                    <div className="w-2.5 h-2.5 rounded-full border-2 border-yellow-400"></div>
                 </div>
             </div>
 
