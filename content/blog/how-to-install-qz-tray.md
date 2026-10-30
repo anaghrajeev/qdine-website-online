@@ -32,19 +32,14 @@ Once the installer is downloaded to your machine:
 
 ---
 
-## Step 3: Verify QZ Tray Running in the System Tray
+## Step 3: Verify and Start QZ Tray
 
-Once installation finishes, QZ Tray will launch automatically in the background.
-
-1. Check your Windows Taskbar at the bottom right of your screen.
-2. Click the **^** arrow to expand your hidden notification icons.
-3. You will see the **QZ Tray icon** (a green and white printer cube) sitting actively in your system tray.
+1. Check your Windows Taskbar at the bottom right. Click the **^** arrow to view hidden icons.
+2. Confirm the **QZ Tray icon** (green and white printer cube) is active.
+3. If it is not visible, find the **QZ Tray** desktop shortcut, right-click it, and select **Run as administrator**.
+4. Right-click the QZ Tray tray icon and ensure **Automatically Start** is checked so it runs on PC boot.
 
 ![QZ Tray active in Windows System Tray notification area](/images/system-tray.png)
-
-> **Note:** If you do not see QZ Tray in your system tray after installation, locate the **QZ Tray** desktop shortcut, right-click on it, and select **Run as administrator**.
-
-> **Pro Tip:** Right-click the QZ Tray icon in your system tray and verify that **Automatically Start** is checked. This ensures QZ Tray boots up seamlessly every time your computer turns on, so your billing staff never encounters disconnected print stations in the morning rush.
 
 ---
 
