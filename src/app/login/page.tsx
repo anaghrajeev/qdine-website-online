@@ -92,7 +92,7 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row bg-[#fdfaf6]">
+        <div className="min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] pt-16 lg:pt-20 flex flex-col md:flex-row bg-[#fdfaf6]">
             {/* Left side: Login Form */}
             <div className="w-full md:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-24 relative z-10">
                 <div className="w-full max-w-md">
@@ -178,20 +178,6 @@ export default function LoginPage() {
 
             {/* Right side: Image/Graphic */}
             <div className="hidden md:flex w-1/2 bg-[#0a714e] p-12 items-center justify-center relative overflow-hidden">
-                {/* Logo / Brand Anchor */}
-                <div className="absolute top-12 left-12 z-20">
-                    <Link href="/" className="inline-block hover:opacity-80 transition-opacity duration-300">
-                        <Image 
-                            src="/images/nav-logo.png" 
-                            alt="Qdine" 
-                            width={130} 
-                            height={44} 
-                            className="w-[130px] h-auto object-contain [filter:brightness(0)_invert(1)]"
-                            priority
-                        />
-                    </Link>
-                </div>
-                
                 {/* Decorative Elements */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[100px] -translate-y-1/3 translate-x-1/3"></div>
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-black/20 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/4"></div>
