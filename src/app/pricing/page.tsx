@@ -158,7 +158,7 @@ export default function PricingPage() {
                             <p className="text-[13px] text-white/50 leading-relaxed">Let guests scan and order instantly from beautifully designed menus.</p>
                         </div>
                         <div>
-                            <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-1.5">Products Management</h4>
+                            <h4 className="text-[14px] sm:text-[15px] font-bold text-white mb-1.5">Menu Management</h4>
                             <p className="text-[13px] text-white/50 leading-relaxed">Manage your entire catalog, variations, and pricing on the fly.</p>
                         </div>
                         <div>
@@ -220,11 +220,7 @@ export default function PricingPage() {
                             <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">Inbuilt Finance Management</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">Track expenses, manage vendor payouts, and keep your restaurant's books in perfect order.</p>
                         </div>
-                        <div>
-                            <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">SOP Builder & Checklists</h4>
-                            <p className="text-[13px] text-gray-500 leading-relaxed">Standardize operations with daily checklists and procedures to keep your staff aligned.</p>
-                        </div>
-                        <div>
+<div>
                             <h4 className="text-[14px] sm:text-[15px] font-bold text-[#1a1a1a] mb-1.5">Free Access to New Features</h4>
                             <p className="text-[13px] text-gray-500 leading-relaxed">As our platform grows, you automatically get all new standard features at no extra cost.</p>
                         </div>

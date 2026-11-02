@@ -28,7 +28,7 @@ export default function Page() {
         </section>
 
         {/* WHY WE EXIST */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-36 overflow-hidden">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div className="reveal-on-scroll order-2 lg:order-1">
                     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-600 text-xs font-semibold uppercase tracking-wider mb-4 border border-gray-200/60">
@@ -53,7 +53,7 @@ export default function Page() {
                 
                 {/* Image Card */}
                 <div className="reveal-on-scroll order-1 lg:order-2" style={{ transitionDelay: '100ms' }}>
-                    <div className="bg-white rounded-[28px] sm:rounded-[36px] aspect-[4/3] overflow-hidden relative shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center justify-center p-2 sm:p-3">
+                    <div className="bg-white rounded-[28px] sm:rounded-[36px] aspect-[4/3] overflow-hidden relative shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center justify-center p-3 sm:p-4">
                         <div className="relative w-full h-full rounded-[20px] sm:rounded-[28px] overflow-hidden bg-gray-50">
                             <Image 
                                 src="/images/kitchen_img_mock.png" 
@@ -69,7 +69,7 @@ export default function Page() {
         </section>
 
         {/* CORE BELIEFS */}
-        <section className="py-20 sm:py-28 relative z-10 overflow-hidden mb-12 sm:mb-20">
+        <section className="py-20 sm:py-32 bg-white border-y border-gray-100 relative z-10 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 reveal-on-scroll">
                     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a714e]/10 text-[#0a714e] text-xs font-semibold uppercase tracking-wider mb-4 border border-[#0a714e]/15">
@@ -118,7 +118,7 @@ export default function Page() {
         </section>
 
         {/* THE IMPACT */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-36">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
             <div className="reveal-on-scroll relative">
                 <div className="text-center mb-16 sm:mb-20">
                     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-600 text-xs font-semibold uppercase tracking-wider mb-4 border border-gray-200/60">
@@ -133,15 +133,15 @@ export default function Page() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center">
-                    <div className="bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center">
+                    <div className="reveal-on-scroll bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center">
                         <div className="text-[44px] sm:text-[56px] font-serif text-[#1a1a1a] tracking-tight mb-3">15 min</div>
                         <p className="text-[15px] sm:text-[16px] text-gray-500 font-normal leading-relaxed">Average time from signup to first order taken</p>
                     </div>
-                    <div className="bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center">
+                    <div className="reveal-on-scroll bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center" style={{ transitionDelay: '100ms' }}>
                         <div className="text-[44px] sm:text-[56px] font-serif text-[#0a714e] tracking-tight mb-3">₹0</div>
                         <p className="text-[15px] sm:text-[16px] text-gray-500 font-normal leading-relaxed">Hardware cost. No POS machines or servers required</p>
                     </div>
-                    <div className="bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center">
+                    <div className="reveal-on-scroll bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center" style={{ transitionDelay: '200ms' }}>
                         <div className="text-[44px] sm:text-[56px] font-serif text-[#1a1a1a] tracking-tight mb-3">1 shift</div>
                         <p className="text-[15px] sm:text-[16px] text-gray-500 font-normal leading-relaxed">Time for any staff member to master the system</p>
                     </div>
@@ -150,7 +150,7 @@ export default function Page() {
         </section>
 
         {/* TEAM NOTE */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-36 reveal-on-scroll">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32 reveal-on-scroll">
             <div className="bg-white rounded-[28px] sm:rounded-[36px] p-8 sm:p-12 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] relative">
                 <div className="relative z-10 pl-4 sm:pl-6 border-l-2 border-[#0a714e]">
                     <h2 className="font-serif text-[22px] sm:text-[28px] md:text-[34px] text-[#1a1a1a] tracking-tight leading-[1.25] mb-6">
@@ -174,7 +174,7 @@ export default function Page() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 sm:py-32 bg-[#fdfaf6] relative z-10 overflow-hidden border-t border-gray-200/40">
+        <section className="py-20 sm:py-32 bg-[#fdfaf6] relative z-10 overflow-hidden">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll">
                 <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] tracking-tight leading-[1.1] mb-6">
                     Ready to join the mission?
