@@ -46,27 +46,27 @@ export default function MissionStats() {
     return () => observer.disconnect();
   }, []);
 
-  const count15 = useCountUp(15, 1200, triggered);
-  const count1 = useCountUp(1, 900, triggered);
+  const count15 = useCountUp(15, 1000, triggered);
+  const count1 = useCountUp(1, 800, triggered);
 
   const stats = [
     {
       index: '01',
-      tag: 'Setup Speed',
+      tag: 'Setup Time',
       val: triggered ? count15 : 0,
       suffix: 'min',
       prefix: '',
       title: 'Immediate Go-Live',
-      description: 'Average time from sign-up to taking your first live order on the floor.',
+      description: 'Average time from signup to taking your first live order on the floor.',
     },
     {
       index: '02',
-      tag: 'Hardware Capex',
+      tag: 'Hardware Cost',
       val: 0,
       suffix: '',
       prefix: '₹',
       title: 'Zero Hardware Lock-In',
-      description: 'No proprietary terminals or servers. Runs seamlessly on any tablet, phone, or laptop you already own.',
+      description: 'No proprietary POS machines or servers. Run on any phone, tablet, or laptop.',
     },
     {
       index: '03',
@@ -75,7 +75,7 @@ export default function MissionStats() {
       suffix: 'shift',
       prefix: '',
       title: 'Effortless Mastery',
-      description: 'Designed so any floor or kitchen team member operates the system with complete confidence in one day.',
+      description: 'Time for any team member to master the entire system with zero prior experience.',
     },
   ];
 
@@ -90,38 +90,40 @@ export default function MissionStats() {
         </p>
       </div>
 
-      {/* Unified Bento Bar */}
+      {/* Unified Bento Bar aligned with website design system */}
       <div
         ref={ref}
-        className="reveal-on-scroll bg-white rounded-[28px] sm:rounded-[36px] border border-gray-200/80 shadow-[0_2px_16px_rgba(0,0,0,0.03)] overflow-hidden"
+        className="reveal-on-scroll bg-white rounded-[24px] sm:rounded-[32px] border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-shadow duration-500 overflow-hidden"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="p-8 sm:p-10 lg:p-12 flex flex-col justify-between group transition-colors duration-300 hover:bg-[#faf8f5]/60"
+              className="p-8 sm:p-10 lg:p-12 flex flex-col justify-between group transition-colors duration-300 hover:bg-[#fdfaf6]/60"
             >
               {/* Top metadata */}
               <div>
-                <div className="flex items-center justify-between mb-8 sm:mb-10">
-                  <span className="text-[11px] font-semibold tracking-wider text-gray-400 uppercase">
+                <div className="flex items-center justify-between mb-6 sm:mb-8">
+                  <span className="text-[12px] font-semibold uppercase tracking-wider text-gray-400">
                     {stat.tag}
                   </span>
-                  <span className="font-serif text-[14px] text-gray-300 group-hover:text-[#0a714e] transition-colors">
+                  <span className="text-[13px] font-semibold text-gray-300 group-hover:text-[#0a714e] transition-colors">
                     {stat.index}
                   </span>
                 </div>
 
-                {/* Hero Metric */}
-                <div className="font-serif text-[48px] sm:text-[56px] lg:text-[68px] text-[#1a1a1a] tracking-tight leading-none mb-8 sm:mb-10">
+                {/* Metric — using website's bold display font (Plus Jakarta Sans) */}
+                <div className="flex items-baseline mb-8 sm:mb-10 tracking-tight">
                   {stat.prefix && (
-                    <span className="text-[#0a714e] font-serif mr-1">
+                    <span className="text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-[#0a714e] mr-1">
                       {stat.prefix}
                     </span>
                   )}
-                  <span>{stat.val}</span>
+                  <span className="text-[52px] sm:text-[60px] lg:text-[72px] font-bold text-[#1a1a1a] leading-none">
+                    {stat.val}
+                  </span>
                   {stat.suffix && (
-                    <span className="text-[20px] sm:text-[24px] lg:text-[28px] font-serif text-gray-400 font-normal ml-2">
+                    <span className="text-[18px] sm:text-[20px] lg:text-[22px] font-medium text-gray-400 ml-2">
                       {stat.suffix}
                     </span>
                   )}
@@ -129,11 +131,11 @@ export default function MissionStats() {
               </div>
 
               {/* Bottom copy */}
-              <div className="pt-4 border-t border-gray-100/80">
-                <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#1a1a1a] mb-2 tracking-tight">
+              <div className="pt-6 border-t border-gray-100">
+                <h3 className="text-[18px] sm:text-[19px] font-semibold text-[#1a1a1a] mb-2 tracking-tight">
                   {stat.title}
                 </h3>
-                <p className="text-[14px] text-gray-500 leading-relaxed font-normal">
+                <p className="text-[14px] sm:text-[15px] text-gray-500 leading-relaxed font-normal">
                   {stat.description}
                 </p>
               </div>
