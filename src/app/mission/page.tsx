@@ -27,9 +27,6 @@ export default function Page() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div className="reveal-on-scroll order-2 lg:order-1">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-600 text-xs font-semibold uppercase tracking-wider mb-4 border border-gray-200/60">
-                        The Problem
-                    </div>
                     <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[52px] text-[#1a1a1a] tracking-tight leading-[1.1] mb-6">
                         Restaurants deserve<br/>
                         <span className="text-gray-400">better software.</span>
@@ -68,9 +65,6 @@ export default function Page() {
         <section className="py-20 sm:py-32 bg-white border-y border-gray-100 relative z-10 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 reveal-on-scroll">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a714e]/10 text-[#0a714e] text-xs font-semibold uppercase tracking-wider mb-4 border border-[#0a714e]/15">
-                        Guiding Principles
-                    </div>
                     <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] tracking-tight leading-[1.1]">
                         What we believe.
                     </h2>
@@ -117,9 +111,6 @@ export default function Page() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
             <div className="reveal-on-scroll relative">
                 <div className="text-center mb-16 sm:mb-20">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-600 text-xs font-semibold uppercase tracking-wider mb-4 border border-gray-200/60">
-                        Tangible Results
-                    </div>
                     <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] tracking-tight leading-[1.1] mb-5">
                         The change we&apos;re making.
                     </h2>
