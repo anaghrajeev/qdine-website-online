@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import MissionStats from '@/components/MissionStats';
 
 export const metadata: Metadata = {
   title: "Our Mission",
@@ -108,33 +109,7 @@ export default function Page() {
         </section>
 
         {/* THE IMPACT */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-            <div className="reveal-on-scroll relative">
-                <div className="text-center mb-16 sm:mb-20">
-                    <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] tracking-tight leading-[1.1] mb-5">
-                        The change we&apos;re making.
-                    </h2>
-                    <p className="text-[17px] sm:text-[19px] text-gray-500 font-normal max-w-xl mx-auto">
-                        Every day, Qdine helps restaurants replace complexity with absolute clarity.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center">
-                    <div className="reveal-on-scroll bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center">
-                        <div className="text-[44px] sm:text-[56px] font-serif text-[#1a1a1a] tracking-tight mb-3">15 min</div>
-                        <p className="text-[15px] sm:text-[16px] text-gray-500 font-normal leading-relaxed">Average time from signup to first order taken</p>
-                    </div>
-                    <div className="reveal-on-scroll bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center" style={{ transitionDelay: '100ms' }}>
-                        <div className="text-[44px] sm:text-[56px] font-serif text-[#0a714e] tracking-tight mb-3">₹0</div>
-                        <p className="text-[15px] sm:text-[16px] text-gray-500 font-normal leading-relaxed">Hardware cost. No POS machines or servers required</p>
-                    </div>
-                    <div className="reveal-on-scroll bg-white rounded-[24px] sm:rounded-[28px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col items-center" style={{ transitionDelay: '200ms' }}>
-                        <div className="text-[44px] sm:text-[56px] font-serif text-[#1a1a1a] tracking-tight mb-3">1 shift</div>
-                        <p className="text-[15px] sm:text-[16px] text-gray-500 font-normal leading-relaxed">Time for any staff member to master the system</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <MissionStats />
 
         {/* TEAM NOTE */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32 reveal-on-scroll">
