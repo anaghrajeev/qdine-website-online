@@ -14,10 +14,6 @@ export default function Page() {
 
         {/* HERO */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-32 text-center reveal-on-scroll">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a714e]/10 text-[#0a714e] text-xs font-semibold uppercase tracking-wider mb-6 border border-[#0a714e]/15">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0a714e]"></span>
-                Our Purpose
-            </div>
             <h1 className="font-serif text-[40px] sm:text-[56px] md:text-[64px] lg:text-[76px] text-[#1a1a1a] tracking-tight leading-[1.05] mb-8">
                 Empowering every restaurant<br/>
                 to run <span className="font-serif italic font-normal text-[#0a714e] pr-2">smarter.</span>
