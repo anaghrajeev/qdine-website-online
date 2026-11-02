@@ -6,8 +6,9 @@ function useCountUp(target: number, duration: number, triggered: boolean) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!triggered || target === 0) {
-      if (target === 0) setCount(0);
+    if (!triggered) return;
+    if (target === 0) {
+      setCount(0);
       return;
     }
     let startTime: number | null = null;
@@ -25,69 +26,6 @@ function useCountUp(target: number, duration: number, triggered: boolean) {
   return count;
 }
 
-interface StatCardProps {
-  icon: string;
-  value: number;
-  suffix: string;
-  prefix?: string;
-  label: string;
-  dark?: boolean;
-  delay?: number;
-  triggered: boolean;
-}
-
-function StatCard({ icon, value, suffix, prefix = '', label, dark = false, delay = 0, triggered }: StatCardProps) {
-  const count = useCountUp(value, 1400, triggered);
-
-  return (
-    <div
-      className={`
-        group relative flex flex-col rounded-[28px] sm:rounded-[32px] overflow-hidden
-        transition-all duration-500 ease-out cursor-default
-        hover:-translate-y-2 hover:shadow-2xl
-        ${dark
-          ? 'bg-[#111111] shadow-[0_8px_40px_rgba(0,0,0,0.18)]'
-          : 'bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.05)]'
-        }
-      `}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {/* Top accent bar */}
-      <div className={`h-[3px] w-full ${dark ? 'bg-white/20' : 'bg-[#0a714e]'}`} />
-
-      <div className="flex flex-col flex-1 p-8 sm:p-10">
-        {/* Icon */}
-        <span
-          className={`material-symbols-outlined text-[28px] mb-6 ${dark ? 'text-white/40' : 'text-[#0a714e]/60'}`}
-        >
-          {icon}
-        </span>
-
-        {/* Stat number */}
-        <div className={`font-serif tracking-tight leading-none mb-auto ${dark ? 'text-white' : 'text-[#1a1a1a]'}`}>
-          <span className={`text-[20px] sm:text-[22px] font-serif mr-1 ${dark ? 'text-white/50' : 'text-[#0a714e]'}`}>
-            {prefix}
-          </span>
-          <span className="text-[64px] sm:text-[80px]">
-            {value === 0 ? '0' : count}
-          </span>
-          <span className={`text-[22px] sm:text-[26px] ml-1.5 font-serif ${dark ? 'text-white/60' : 'text-gray-400'}`}>
-            {suffix}
-          </span>
-        </div>
-
-        {/* Divider */}
-        <div className={`my-6 h-px w-12 ${dark ? 'bg-white/10' : 'bg-gray-100'}`} />
-
-        {/* Label */}
-        <p className={`text-[14px] sm:text-[15px] leading-relaxed font-normal ${dark ? 'text-white/50' : 'text-gray-500'}`}>
-          {label}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export default function MissionStats() {
   const ref = useRef<HTMLDivElement>(null);
   const [triggered, setTriggered] = useState(false);
@@ -102,15 +40,48 @@ export default function MissionStats() {
           observer.disconnect();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
+  const count15 = useCountUp(15, 1200, triggered);
+  const count1 = useCountUp(1, 900, triggered);
+
+  const stats = [
+    {
+      index: '01',
+      tag: 'Setup Speed',
+      val: triggered ? count15 : 0,
+      suffix: 'min',
+      prefix: '',
+      title: 'Immediate Go-Live',
+      description: 'Average time from sign-up to taking your first live order on the floor.',
+    },
+    {
+      index: '02',
+      tag: 'Hardware Capex',
+      val: 0,
+      suffix: '',
+      prefix: '₹',
+      title: 'Zero Hardware Lock-In',
+      description: 'No proprietary terminals or servers. Runs seamlessly on any tablet, phone, or laptop you already own.',
+    },
+    {
+      index: '03',
+      tag: 'Staff Training',
+      val: triggered ? count1 : 0,
+      suffix: 'shift',
+      prefix: '',
+      title: 'Effortless Mastery',
+      description: 'Designed so any floor or kitchen team member operates the system with complete confidence in one day.',
+    },
+  ];
+
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-      <div className="text-center mb-16 sm:mb-20">
+      <div className="text-center mb-14 sm:mb-16 reveal-on-scroll">
         <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#1a1a1a] tracking-tight leading-[1.1] mb-5">
           The change we&apos;re making.
         </h2>
@@ -119,49 +90,55 @@ export default function MissionStats() {
         </p>
       </div>
 
-      <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-        <div
-          className="reveal-on-scroll"
-          style={{ transitionDelay: '0ms' }}
-        >
-          <StatCard
-            icon="schedule"
-            value={15}
-            suffix="min"
-            label="Average time from signup to first order taken"
-            delay={0}
-            triggered={triggered}
-          />
-        </div>
+      {/* Unified Bento Bar */}
+      <div
+        ref={ref}
+        className="reveal-on-scroll bg-white rounded-[28px] sm:rounded-[36px] border border-gray-200/80 shadow-[0_2px_16px_rgba(0,0,0,0.03)] overflow-hidden"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+          {stats.map((stat, idx) => (
+            <div
+              key={idx}
+              className="p-8 sm:p-10 lg:p-12 flex flex-col justify-between group transition-colors duration-300 hover:bg-[#faf8f5]/60"
+            >
+              {/* Top metadata */}
+              <div>
+                <div className="flex items-center justify-between mb-8 sm:mb-10">
+                  <span className="text-[11px] font-semibold tracking-wider text-gray-400 uppercase">
+                    {stat.tag}
+                  </span>
+                  <span className="font-serif text-[14px] text-gray-300 group-hover:text-[#0a714e] transition-colors">
+                    {stat.index}
+                  </span>
+                </div>
 
-        <div
-          className="reveal-on-scroll md:-translate-y-4"
-          style={{ transitionDelay: '120ms' }}
-        >
-          <StatCard
-            icon="currency_rupee"
-            value={0}
-            prefix="₹"
-            suffix=""
-            label="Hardware cost. No POS machines or servers required"
-            dark
-            delay={120}
-            triggered={triggered}
-          />
-        </div>
+                {/* Hero Metric */}
+                <div className="font-serif text-[48px] sm:text-[56px] lg:text-[68px] text-[#1a1a1a] tracking-tight leading-none mb-8 sm:mb-10">
+                  {stat.prefix && (
+                    <span className="text-[#0a714e] font-serif mr-1">
+                      {stat.prefix}
+                    </span>
+                  )}
+                  <span>{stat.val}</span>
+                  {stat.suffix && (
+                    <span className="text-[20px] sm:text-[24px] lg:text-[28px] font-serif text-gray-400 font-normal ml-2">
+                      {stat.suffix}
+                    </span>
+                  )}
+                </div>
+              </div>
 
-        <div
-          className="reveal-on-scroll"
-          style={{ transitionDelay: '240ms' }}
-        >
-          <StatCard
-            icon="bolt"
-            value={1}
-            suffix="shift"
-            label="Time for any staff member to master the system"
-            delay={240}
-            triggered={triggered}
-          />
+              {/* Bottom copy */}
+              <div className="pt-4 border-t border-gray-100/80">
+                <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#1a1a1a] mb-2 tracking-tight">
+                  {stat.title}
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-relaxed font-normal">
+                  {stat.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
