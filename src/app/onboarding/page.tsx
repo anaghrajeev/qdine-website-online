@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function OnboardingPage() {
     const router = useRouter();
@@ -61,24 +60,10 @@ export default function OnboardingPage() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row bg-[#fdfaf6]">
+        <div className="min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] pt-16 lg:pt-20 flex flex-col md:flex-row bg-[#fdfaf6]">
             {/* Left side: Onboarding Form */}
             <div className="w-full md:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-24 relative z-10 overflow-y-auto">
                 <div className="w-full max-w-md my-auto py-8">
-                    {/* Brand */}
-                    <div className="mb-10">
-                        <Link href="/">
-                            <Image 
-                                src="/images/nav-logo.png" 
-                                alt="Qdine" 
-                                width={120} 
-                                height={40} 
-                                className="w-[100px] sm:w-[120px] h-auto object-contain [filter:brightness(0)_saturate(100%)]" 
-                                priority
-                            />
-                        </Link>
-                    </div>
-
                     <h1 className="font-serif text-[32px] sm:text-[40px] font-bold text-[#1a1a1a] tracking-tight mb-2">
                         Get Started Free
                     </h1>
