@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import Cal from '@calcom/embed-react';
 
 export default function BookDemoButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setMounted(true);
@@ -32,7 +32,6 @@ export default function BookDemoButton() {
   }, [isOpen]);
 
   const openModal = () => {
-    setIsLoading(true);
     setIsOpen(true);
   };
 
@@ -54,7 +53,7 @@ export default function BookDemoButton() {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
-        <div className="flex items-center justify-between px-6 sm:px-8 py-4 sm:py-5 border-b border-gray-100 bg-white">
+        <div className="flex items-center justify-between px-6 sm:px-8 py-4 sm:py-5 border-b border-gray-100 bg-white flex-shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-2.5 h-2.5 rounded-full bg-[#0a714e]"></div>
             <div>
@@ -89,18 +88,11 @@ export default function BookDemoButton() {
         </div>
 
         {/* Calendar Body */}
-        <div className="relative flex-1 w-full bg-[#fdfaf6] overflow-hidden">
-          {isLoading && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#fdfaf6] z-10">
-              <div className="w-8 h-8 border-3 border-[#0a714e]/20 border-t-[#0a714e] rounded-full animate-spin mb-3"></div>
-              <p className="text-[13px] text-gray-500 font-medium">Loading calendar...</p>
-            </div>
-          )}
-          <iframe 
-            src="https://cal.com/qdine/15min?embed=true"
-            title="Qdine Demo Booking"
-            className="w-full h-full border-0"
-            onLoad={() => setIsLoading(false)}
+        <div className="relative flex-1 w-full bg-[#fdfaf6] overflow-y-auto">
+          <Cal
+            calLink="qdine/15min"
+            style={{ width: "100%", height: "100%", minHeight: "550px", border: "0" }}
+            config={{ layout: "month_view", theme: "light" }}
           />
         </div>
       </div>
