@@ -43,9 +43,11 @@ export default function BookDemoButton() {
         };
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    window.Cal?.("init", { origin: "https://app.cal.com" });
+    // Initialize the "15min" namespace with origin
+    window.Cal?.("init", "15min", { origin: "https://cal.com" });
 
-    window.Cal?.("ui", {
+    // Configure UI styling for this namespace
+    window.Cal?.ns?.["15min"]?.("ui", {
       theme: "light",
       styles: {
         branding: {
@@ -55,19 +57,37 @@ export default function BookDemoButton() {
       hideEventTypeDetails: false,
       layout: "month_view",
     });
+
+    // Also preload the modal so it opens immediately without delay
+    window.Cal?.ns?.["15min"]?.("preload", {
+      calLink: "qdine/15min",
+    });
   }, []);
 
-  const handleClick = () => {
-    // If Cal embed hasn't initialized for any reason (e.g. adblocker), open directly
-    if (typeof window !== "undefined" && !window.Cal?.loaded) {
-      window.open("https://cal.com/qdine/15min", "_blank", "noopener,noreferrer");
+  const handleClick = (e: React.MouseEvent) => {
+    // If Cal instance is ready, trigger modal directly
+    if (typeof window !== "undefined" && window.Cal?.ns?.["15min"]) {
+      try {
+        window.Cal.ns["15min"]("modal", {
+          calLink: "qdine/15min",
+          calOrigin: "https://cal.com",
+          config: { layout: "month_view" },
+        });
+        return;
+      } catch (err) {
+        console.error("Cal modal error:", err);
+      }
     }
+    // Fallback if blocked by adblocker
+    window.open("https://cal.com/qdine/15min", "_blank", "noopener,noreferrer");
   };
 
   return (
     <button
-      data-cal-namespace=""
+      type="button"
+      data-cal-namespace="15min"
       data-cal-link="qdine/15min"
+      data-cal-origin="https://cal.com"
       data-cal-config='{"layout":"month_view"}'
       onClick={handleClick}
       className="bg-[#111111] hover:bg-black text-white px-6 sm:px-8 py-3.5 rounded-full font-medium text-[15px] transition-all duration-200 flex items-center justify-center sm:w-max shadow-sm relative z-20 cursor-pointer"
