@@ -65,29 +65,30 @@ export default function OnboardingPage() {
             {/* ========================================================= */}
             {/* LEFT PANEL: The Signup Form                                */}
             {/* ========================================================= */}
-            <div className="w-full lg:w-[46%] xl:w-[44%] h-full flex flex-col justify-center px-6 sm:px-12 lg:px-14 xl:px-20 py-8 sm:py-12 relative z-10 bg-white overflow-y-auto">
+            <div className="w-full lg:w-[48%] xl:w-[45%] h-full flex flex-col justify-center items-center px-6 sm:px-10 lg:px-12 xl:px-16 py-8 sm:py-12 relative z-10 bg-white overflow-y-auto">
                 
-                {/* Subtle Back Link */}
-                <div className="mb-6 sm:mb-8">
-                    <Link 
-                        href="/" 
-                        className="inline-flex items-center gap-1.5 text-[13px] text-gray-400 hover:text-[#1a1a1a] transition-colors font-medium group"
-                    >
-                        <span className="material-symbols-outlined text-[17px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
-                        <span>Back</span>
-                    </Link>
-                </div>
+                {/* Unified Centered Form Container */}
+                <div className="w-full max-w-[480px] sm:max-w-[500px] xl:max-w-[520px] mx-auto my-auto">
+                    
+                    {/* Subtle Back Link - perfectly aligned with the form */}
+                    <div className="mb-6 sm:mb-8">
+                        <Link 
+                            href="/" 
+                            className="inline-flex items-center gap-1.5 text-[13px] text-gray-400 hover:text-[#1a1a1a] transition-colors font-medium group"
+                        >
+                            <span className="material-symbols-outlined text-[17px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                            <span>Back</span>
+                        </Link>
+                    </div>
 
-                {/* Form Wrapper */}
-                <div className="w-full max-w-md mx-auto lg:mx-0">
-                    <h1 className="font-serif text-[30px] sm:text-[34px] lg:text-[38px] font-bold text-[#1a1a1a] tracking-tight mb-2 leading-tight">
+                    <h1 className="font-serif text-[32px] sm:text-[36px] lg:text-[40px] font-bold text-[#1a1a1a] tracking-tight mb-2 leading-tight">
                         Get Started Free
                     </h1>
-                    <p className="text-gray-500 text-[14px] sm:text-[15px] font-normal mb-7">
+                    <p className="text-gray-500 text-[14px] sm:text-[15px] font-normal mb-8">
                         Set up your restaurant in seconds. No credit card required.
                     </p>
 
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4.5">
                         {error && (
                             <div className="p-3.5 rounded-xl bg-red-50 text-red-600 text-[13px] font-medium border border-red-100 flex items-center gap-2">
                                 <span className="material-symbols-outlined text-[18px]">error</span>
@@ -104,7 +105,7 @@ export default function OnboardingPage() {
                                 id="name"
                                 type="text"
                                 required
-                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
+                                className="w-full px-4 py-3.5 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
                                 placeholder="The Coastal Bistro"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -120,7 +121,7 @@ export default function OnboardingPage() {
                                 id="email"
                                 type="email"
                                 required
-                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
+                                className="w-full px-4 py-3.5 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
                                 placeholder="owner@gmail.com"
                                 value={formData.admin_email}
                                 onChange={(e) => setFormData({ ...formData, admin_email: e.target.value })}
@@ -138,7 +139,7 @@ export default function OnboardingPage() {
                                     type={showPassword ? "text" : "password"}
                                     required
                                     minLength={6}
-                                    className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400 pr-11 tracking-wider"
+                                    className="w-full px-4 py-3.5 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400 pr-11 tracking-wider"
                                     placeholder="••••••••••••"
                                     value={formData.admin_password}
                                     onChange={(e) => setFormData({ ...formData, admin_password: e.target.value })}
@@ -164,7 +165,7 @@ export default function OnboardingPage() {
                             <input
                                 id="phone"
                                 type="tel"
-                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
+                                className="w-full px-4 py-3.5 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
                                 placeholder="+91 98765 43210"
                                 value={formData.phone}
                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -176,7 +177,7 @@ export default function OnboardingPage() {
                             <button 
                                 type="submit" 
                                 disabled={loading}
-                                className="w-full bg-[#0a714e] hover:bg-[#085a3e] active:scale-[0.99] text-white py-3.5 rounded-full font-semibold text-[15px] transition-all duration-200 shadow-sm flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+                                className="w-full bg-[#0a714e] hover:bg-[#085a3e] active:scale-[0.99] text-white py-3.5 sm:py-4 rounded-full font-semibold text-[15px] sm:text-[16px] transition-all duration-200 shadow-sm flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
                             >
                                 {loading ? (
                                     <span className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
@@ -198,7 +199,7 @@ export default function OnboardingPage() {
             {/* RIGHT PANEL: Angular Chevron + Lifestyle Image (Desktop)   */}
             {/* Omitted completely on mobile for clean Apple-like focus   */}
             {/* ========================================================= */}
-            <div className="hidden lg:flex relative w-full lg:w-[54%] xl:w-[56%] h-full flex-col justify-start items-start pt-14 lg:pt-16 xl:pt-20 2xl:pt-24 overflow-hidden bg-[#0a714e]">
+            <div className="hidden lg:flex relative w-full lg:w-[52%] xl:w-[55%] h-full flex-col justify-start items-start pt-14 lg:pt-16 xl:pt-20 2xl:pt-24 overflow-hidden bg-[#0a714e]">
                 
                 {/* Background Image: Lady Manager & POS Laptop */}
                 <Image
