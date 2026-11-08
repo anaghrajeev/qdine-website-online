@@ -198,7 +198,7 @@ export default function OnboardingPage() {
             {/* RIGHT PANEL: Angular Chevron + Lifestyle Image (Desktop)   */}
             {/* Omitted completely on mobile for clean Apple-like focus   */}
             {/* ========================================================= */}
-            <div className="hidden lg:flex relative w-full lg:w-[54%] xl:w-[56%] h-full items-center overflow-hidden bg-[#0a714e]">
+            <div className="hidden lg:flex relative w-full lg:w-[54%] xl:w-[56%] h-full flex-col justify-start items-start pt-14 lg:pt-16 xl:pt-20 2xl:pt-24 overflow-hidden bg-[#0a714e]">
                 
                 {/* Background Image: Lady Manager & POS Laptop */}
                 <Image
@@ -211,8 +211,8 @@ export default function OnboardingPage() {
                 />
 
                 {/* Dark Vignette / Gradient Scrim for crisp text contrast */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent z-10 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 z-10 pointer-events-none" />
 
                 {/* Angular Green Chevron Divider */}
                 <div className="absolute inset-y-0 left-0 w-28 xl:w-36 z-20 pointer-events-none select-none">
@@ -229,19 +229,19 @@ export default function OnboardingPage() {
                     </svg>
                 </div>
 
-                {/* Overlay Text Content */}
-                <div className="relative z-30 p-8 sm:p-12 lg:p-16 lg:pl-28 xl:pl-36 max-w-lg">
-                    <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-bold text-white tracking-tight leading-[1.08] mb-3 drop-shadow-sm">
+                {/* Overlay Text Content - Lifted up and shifted comfortably to the right */}
+                <div className="relative z-30 lg:pl-44 xl:pl-52 2xl:pl-60 pr-8 max-w-md xl:max-w-lg">
+                    <h2 className="text-[32px] sm:text-[36px] lg:text-[40px] xl:text-[44px] font-bold text-white tracking-tight leading-[1.1] mb-3 drop-shadow-sm">
                         Run a <span className="text-[#22c55e]">Smarter</span><br />
                         Restaurant
                     </h2>
                     
-                    <p className="text-white/90 text-[15px] sm:text-[17px] font-medium leading-relaxed max-w-sm mb-4 drop-shadow-sm">
+                    <p className="text-white/90 text-[14px] sm:text-[15px] xl:text-[16px] font-medium leading-relaxed mb-4 drop-shadow-sm">
                         Manage orders, track sales, and grow your business.
                     </p>
 
                     {/* Green Accent Underline Bar */}
-                    <div className="w-12 h-1 bg-[#22c55e] rounded-full shadow-sm" />
+                    <div className="w-10 h-1 bg-[#22c55e] rounded-full shadow-sm" />
                 </div>
             </div>
 
