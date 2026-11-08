@@ -214,7 +214,7 @@ export default function LoginPage() {
                 {/* Overlay Text Content - 2 wide lines, bold & prominent with generous breathing room */}
                 <div className="relative z-30 lg:pl-44 xl:pl-52 2xl:pl-60 pr-8 max-w-lg xl:max-w-xl">
                     <h2 className="text-[34px] sm:text-[38px] lg:text-[42px] xl:text-[48px] 2xl:text-[52px] font-bold text-white tracking-tight leading-[1.08] mb-3.5 drop-shadow-sm">
-                        <span className="whitespace-nowrap">Run a <span className="text-[#22c55e]">Smarter</span></span><br />
+                        <span className="whitespace-nowrap">Run a <span className="text-[#0a714e]">Smarter</span></span><br />
                         <span>Restaurant</span>
                     </h2>
                     
@@ -223,7 +223,7 @@ export default function LoginPage() {
                     </p>
 
                     {/* Green Accent Underline Bar */}
-                    <div className="w-12 h-1 bg-[#22c55e] rounded-full shadow-sm" />
+                    <div className="w-12 h-1 bg-[#0a714e] rounded-full shadow-sm" />
                 </div>
             </div>
 
