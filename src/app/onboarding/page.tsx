@@ -80,10 +80,10 @@ export default function OnboardingPage() {
 
                 {/* Form Wrapper */}
                 <div className="w-full max-w-md mx-auto lg:mx-0">
-                    <h1 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#1a1a1a] tracking-tight mb-2 leading-tight">
+                    <h1 className="font-serif text-[30px] sm:text-[34px] lg:text-[38px] font-bold text-[#1a1a1a] tracking-tight mb-2 leading-tight">
                         Get Started Free
                     </h1>
-                    <p className="text-gray-500 text-[14px] sm:text-[15px] font-medium mb-7">
+                    <p className="text-gray-500 text-[14px] sm:text-[15px] font-normal mb-7">
                         Set up your restaurant in seconds. No credit card required.
                     </p>
 
@@ -229,19 +229,19 @@ export default function OnboardingPage() {
                     </svg>
                 </div>
 
-                {/* Overlay Text Content - Lifted up and shifted comfortably to the right */}
+                {/* Overlay Text Content - 2 wide lines, lifted up with generous breathing room */}
                 <div className="relative z-30 lg:pl-44 xl:pl-52 2xl:pl-60 pr-8 max-w-md xl:max-w-lg">
-                    <h2 className="text-[32px] sm:text-[36px] lg:text-[40px] xl:text-[44px] font-bold text-white tracking-tight leading-[1.1] mb-3 drop-shadow-sm">
-                        Run a <span className="text-[#22c55e]">Smarter</span><br />
-                        Restaurant
+                    <h2 className="text-[28px] sm:text-[32px] lg:text-[34px] xl:text-[38px] font-bold text-white tracking-tight leading-[1.12] mb-2.5 drop-shadow-sm">
+                        <span className="whitespace-nowrap">Run a <span className="text-[#22c55e]">Smarter</span></span><br />
+                        <span>Restaurant</span>
                     </h2>
                     
-                    <p className="text-white/90 text-[14px] sm:text-[15px] xl:text-[16px] font-medium leading-relaxed mb-4 drop-shadow-sm">
+                    <p className="text-white/85 text-[14px] sm:text-[15px] font-normal leading-relaxed max-w-xs mb-3.5 drop-shadow-sm">
                         Manage orders, track sales, and grow your business.
                     </p>
 
                     {/* Green Accent Underline Bar */}
-                    <div className="w-10 h-1 bg-[#22c55e] rounded-full shadow-sm" />
+                    <div className="w-8 h-1 bg-[#22c55e] rounded-full shadow-sm" />
                 </div>
             </div>
 
