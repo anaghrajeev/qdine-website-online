@@ -79,10 +79,7 @@ export default function Page() {
                     {/* Belief 1 */}
                     <div className="reveal-on-scroll group bg-white rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between">
                         <div>
-                            <div className="flex items-center justify-between mb-6">
-                                <span className="text-[28px] sm:text-[32px] font-bold text-[#0a714e] tracking-tight">01</span>
-                                <span className="text-[12px] font-semibold uppercase tracking-wider text-gray-400">Principle</span>
-                            </div>
+                            <div className="text-[28px] sm:text-[32px] font-bold text-[#0a714e] tracking-tight mb-5">01</div>
                             <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#1a1a1a] mb-3 tracking-tight">Intelligence should be accessible</h3>
                             <p className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed font-normal">
                                 AI-powered analytics shouldn&apos;t cost ₹10 lakhs. Every restaurant owner deserves to know their peak hours, best sellers, and waste patterns — without hiring a data analyst.
@@ -93,10 +90,7 @@ export default function Page() {
                     {/* Belief 2 */}
                     <div className="reveal-on-scroll group bg-white rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between" style={{ transitionDelay: '100ms' }}>
                         <div>
-                            <div className="flex items-center justify-between mb-6">
-                                <span className="text-[28px] sm:text-[32px] font-bold text-[#0a714e] tracking-tight">02</span>
-                                <span className="text-[12px] font-semibold uppercase tracking-wider text-gray-400">Principle</span>
-                            </div>
+                            <div className="text-[28px] sm:text-[32px] font-bold text-[#0a714e] tracking-tight mb-5">02</div>
                             <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#1a1a1a] mb-3 tracking-tight">Software should feel effortless</h3>
                             <p className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed font-normal">
                                 If your staff can&apos;t learn the system in one shift, the system has failed — not your staff. We obsess over simplicity so you can focus on hospitality.
@@ -107,10 +101,7 @@ export default function Page() {
                     {/* Belief 3 */}
                     <div className="reveal-on-scroll group bg-white rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between" style={{ transitionDelay: '200ms' }}>
                         <div>
-                            <div className="flex items-center justify-between mb-6">
-                                <span className="text-[28px] sm:text-[32px] font-bold text-[#0a714e] tracking-tight">03</span>
-                                <span className="text-[12px] font-semibold uppercase tracking-wider text-gray-400">Principle</span>
-                            </div>
+                            <div className="text-[28px] sm:text-[32px] font-bold text-[#0a714e] tracking-tight mb-5">03</div>
                             <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#1a1a1a] mb-3 tracking-tight">Your data is sacred</h3>
                             <p className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed font-normal">
                                 We will never sell, share, or use your restaurant&apos;s data to train AI models. Your business intelligence belongs to you. Period.
