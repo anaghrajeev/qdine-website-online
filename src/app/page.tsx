@@ -10,11 +10,11 @@ export default function Page() {
     <>
 <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-8 lg:pb-16 overflow-hidden min-h-[80vh] lg:min-h-screen flex flex-col justify-center bg-[#fdfaf6]">
     <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 w-full">
-        <div className="grid xl:grid-cols-2 gap-10 xl:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
             
             {/* Left Column: Content */}
-            <div className="reveal-on-scroll max-w-xl">
-                <h1 className="text-[60px] sm:text-[64px] md:text-[72px] lg:text-[84px] font-medium leading-[1.05] tracking-tight mb-6 text-[#1a1a1a]">
+            <div className="reveal-on-scroll max-w-xl lg:max-w-none">
+                <h1 className="text-[52px] sm:text-[64px] md:text-[70px] lg:text-[68px] xl:text-[84px] font-medium leading-[1.05] tracking-tight mb-6 text-[#1a1a1a]">
                     The world's most<br/>
                     <span className="inline-grid [grid-template-columns:1fr] [grid-template-rows:1fr] overflow-hidden align-baseline relative">
                         <span className="col-start-1 row-start-1 font-serif italic font-normal animate-[slideUp1_9s_ease-in-out_infinite] pr-3">intelligent</span>
@@ -25,7 +25,7 @@ export default function Page() {
                     management system
                 </h1>
                 
-                <p className="text-[16px] sm:text-[18px] lg:text-[20px] text-gray-600 leading-relaxed mb-8 sm:mb-10 font-medium">
+                <p className="text-[16px] sm:text-[18px] lg:text-[19px] xl:text-[20px] text-gray-600 leading-relaxed mb-8 sm:mb-10 font-medium">
                     Qdine turns every order into perfect insights and instant service, and works with every restaurant workflow. You'll never manage tables manually again.
                 </p>
 
@@ -53,9 +53,9 @@ export default function Page() {
                 </div>
             </div>
 
-            {/* Right Column: Visual */}
-            <div className="relative reveal-on-scroll xl:-translate-y-12" style={{"transitionDelay":"200ms"}}>
-                <div className="rounded-[24px] sm:rounded-[40px] overflow-hidden relative shadow-2xl h-[420px] sm:h-[450px] lg:h-[600px] w-full bg-gray-50 border border-gray-100">
+            {/* Right Column: Visual (Chat Box Animation) */}
+            <div className="relative reveal-on-scroll lg:-translate-y-6 xl:-translate-y-12" style={{"transitionDelay":"200ms"}}>
+                <div className="rounded-[24px] sm:rounded-[36px] lg:rounded-[40px] overflow-hidden relative shadow-2xl h-[420px] sm:h-[460px] lg:h-[540px] xl:h-[600px] w-full bg-gray-50 border border-gray-100">
                     <HeroSaaSAnimation />
                 </div>
             </div>
