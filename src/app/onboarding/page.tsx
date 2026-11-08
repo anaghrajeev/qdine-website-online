@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function OnboardingPage() {
     const router = useRouter();
@@ -30,7 +31,6 @@ export default function OnboardingPage() {
             const data = await res.json();
 
             if (res.ok && data.success !== false) {
-                // Safely extract redirect URL
                 const portalUrl = data?.data?.urls?.admin_portal || data?.redirect_url || data?.url;
                 
                 if (portalUrl) {
@@ -60,56 +60,63 @@ export default function OnboardingPage() {
     };
 
     return (
-        <div className="min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] pt-16 lg:pt-20 flex flex-col md:flex-row bg-[#fdfaf6]">
-            {/* Left side: Onboarding Form */}
-            <div className="w-full md:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-24 relative z-10 overflow-y-auto">
-                <div className="w-full max-w-md my-auto py-8">
-                    <h1 className="font-serif text-[32px] sm:text-[40px] font-bold text-[#1a1a1a] tracking-tight mb-2">
+        <div className="min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] pt-16 lg:pt-20 flex flex-col lg:flex-row bg-white overflow-hidden">
+            
+            {/* ========================================================= */}
+            {/* LEFT PANEL: Form Area                                      */}
+            {/* ========================================================= */}
+            <div className="w-full lg:w-[46%] xl:w-[44%] flex items-center justify-center p-6 sm:p-10 lg:p-12 xl:p-16 relative z-10 bg-white">
+                <div className="w-full max-w-md my-auto py-4 sm:py-6">
+                    <h1 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#1a1a1a] tracking-tight mb-2 leading-tight">
                         Get Started Free
                     </h1>
-                    <p className="text-gray-500 mb-8 font-medium">
+                    <p className="text-gray-500 text-[14px] sm:text-[15px] font-medium mb-7">
                         Set up your restaurant in seconds. No credit card required.
                     </p>
 
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                         {error && (
-                            <div className="p-4 rounded-xl bg-red-50 text-red-600 text-[14px] font-medium border border-red-100">
-                                {error}
+                            <div className="p-3.5 rounded-xl bg-red-50 text-red-600 text-[13px] font-medium border border-red-100 flex items-center gap-2">
+                                <span className="material-symbols-outlined text-[18px]">error</span>
+                                <span>{error}</span>
                             </div>
                         )}
 
+                        {/* Restaurant Name */}
                         <div>
-                            <label className="block text-[14px] font-medium text-gray-700 mb-1.5" htmlFor="name">
+                            <label className="block text-[13px] font-medium text-gray-700 mb-1.5" htmlFor="name">
                                 Restaurant Name
                             </label>
                             <input
                                 id="name"
                                 type="text"
                                 required
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0a714e] focus:ring-1 focus:ring-[#0a714e] outline-none transition-all text-[#1a1a1a]"
+                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[14px] placeholder:text-gray-400"
                                 placeholder="The Coastal Bistro"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             />
                         </div>
 
+                        {/* Email Address */}
                         <div>
-                            <label className="block text-[14px] font-medium text-gray-700 mb-1.5" htmlFor="email">
+                            <label className="block text-[13px] font-medium text-gray-700 mb-1.5" htmlFor="email">
                                 Your Email Address
                             </label>
                             <input
                                 id="email"
                                 type="email"
                                 required
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0a714e] focus:ring-1 focus:ring-[#0a714e] outline-none transition-all text-[#1a1a1a]"
-                                placeholder="owner@restaurant.com"
+                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[14px] placeholder:text-gray-400"
+                                placeholder="owner@gmail.com"
                                 value={formData.admin_email}
                                 onChange={(e) => setFormData({ ...formData, admin_email: e.target.value })}
                             />
                         </div>
 
+                        {/* Password */}
                         <div>
-                            <label className="block text-[14px] font-medium text-gray-700 mb-1.5" htmlFor="password">
+                            <label className="block text-[13px] font-medium text-gray-700 mb-1.5" htmlFor="password">
                                 Password
                             </label>
                             <div className="relative">
@@ -118,49 +125,54 @@ export default function OnboardingPage() {
                                     type={showPassword ? "text" : "password"}
                                     required
                                     minLength={6}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0a714e] focus:ring-1 focus:ring-[#0a714e] outline-none transition-all text-[#1a1a1a] pr-12"
-                                    placeholder="min 6 characters"
+                                    className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[14px] placeholder:text-gray-400 pr-11 tracking-wider"
+                                    placeholder="••••••••••••"
                                     value={formData.admin_password}
                                     onChange={(e) => setFormData({ ...formData, admin_password: e.target.value })}
                                 />
                                 <button
                                     type="button"
-                                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 focus:outline-none"
+                                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-gray-600 focus:outline-none cursor-pointer"
                                     onClick={() => setShowPassword(!showPassword)}
+                                    aria-label={showPassword ? "Hide password" : "Show password"}
                                 >
-                                    <span className="material-symbols-outlined text-[20px]">
+                                    <span className="material-symbols-outlined text-[19px]">
                                         {showPassword ? 'visibility_off' : 'visibility'}
                                     </span>
                                 </button>
                             </div>
                         </div>
 
+                        {/* Phone Number */}
                         <div>
-                            <label className="block text-[14px] font-medium text-gray-700 mb-1.5" htmlFor="phone">
+                            <label className="block text-[13px] font-medium text-gray-700 mb-1.5" htmlFor="phone">
                                 Phone Number <span className="text-gray-400 font-normal">(Optional)</span>
                             </label>
                             <input
                                 id="phone"
                                 type="tel"
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0a714e] focus:ring-1 focus:ring-[#0a714e] outline-none transition-all text-[#1a1a1a]"
+                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[14px] placeholder:text-gray-400"
                                 placeholder="+91 98765 43210"
                                 value={formData.phone}
                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                             />
                         </div>
 
-                        <button 
-                            type="submit" 
-                            disabled={loading}
-                            className="w-full bg-[#0a714e] hover:bg-[#085a3e] text-white py-3.5 rounded-full font-semibold text-[15px] transition-all duration-200 shadow-sm flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
-                        >
-                            {loading ? (
-                                <span className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                            ) : 'Create Your Restaurant'}
-                        </button>
+                        {/* Submit Button */}
+                        <div className="pt-2">
+                            <button 
+                                type="submit" 
+                                disabled={loading}
+                                className="w-full bg-[#0a714e] hover:bg-[#085a3e] active:scale-[0.99] text-white py-3.5 rounded-full font-semibold text-[15px] transition-all duration-200 shadow-sm flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+                            >
+                                {loading ? (
+                                    <span className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                                ) : 'Create Your Restaurant'}
+                            </button>
+                        </div>
                     </form>
 
-                    <p className="mt-8 text-center text-gray-500 text-[14px] font-medium">
+                    <p className="mt-7 text-center text-gray-500 text-[13.5px] font-medium">
                         Already have an account?{' '}
                         <Link href="/login" className="text-[#0a714e] font-semibold hover:underline">
                             Log in
@@ -169,26 +181,56 @@ export default function OnboardingPage() {
                 </div>
             </div>
 
-            {/* Right side: Image/Graphic */}
-            <div className="hidden md:flex w-1/2 bg-[#0a714e] p-12 items-center justify-center relative overflow-hidden">
-                {/* Decorative Elements */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/10 rounded-full blur-[60px] translate-y-1/3 -translate-x-1/4"></div>
+            {/* ========================================================= */}
+            {/* RIGHT PANEL: Angular Green Chevron + Hero Image           */}
+            {/* ========================================================= */}
+            <div className="relative w-full lg:w-[54%] xl:w-[56%] min-h-[420px] lg:min-h-full flex items-center overflow-hidden bg-[#0a714e]">
                 
-                <div className="relative z-10 max-w-md text-center">
-                    <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-[32px] shadow-2xl inline-flex flex-col items-center">
-                        <span className="material-symbols-outlined text-[64px] text-white mb-6 animate-[pulse_3s_infinite]">
-                            rocket_launch
-                        </span>
-                        <h2 className="text-white text-[28px] font-serif tracking-tight mb-4 leading-tight">
-                            Launch your digital<br/>restaurant today
-                        </h2>
-                        <p className="text-white/80 text-[16px] leading-relaxed font-medium">
-                            Join 500+ successful owners. Instant setup, QR menus, and POS out of the box.
-                        </p>
-                    </div>
+                {/* Background Image: Lady Manager & POS Laptop */}
+                <Image
+                    src="/images/onboarding_hero.png"
+                    alt="Run a Smarter Restaurant with Qdine"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-cover object-[70%_center]"
+                />
+
+                {/* Dark Vignette / Gradient Scrim for crystal clear readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10 pointer-events-none" />
+
+                {/* Angular Green Chevron Divider (Desktop Only) */}
+                <div className="hidden lg:block absolute inset-y-0 left-0 w-28 xl:w-36 z-20 pointer-events-none select-none">
+                    <svg 
+                        viewBox="0 0 120 1000" 
+                        preserveAspectRatio="none" 
+                        className="w-full h-full"
+                    >
+                        {/* White polygon extending the left form area into an angled point */}
+                        <polygon points="0,0 24,0 72,460 0,1000" fill="#ffffff" />
+                        
+                        {/* Green chevron band running alongside the white edge */}
+                        <polygon points="24,0 56,0 120,460 38,1000 0,1000 72,460" fill="#0a714e" />
+                    </svg>
+                </div>
+
+                {/* Overlay Text Content */}
+                <div className="relative z-30 p-8 sm:p-12 lg:p-16 lg:pl-28 xl:pl-36 max-w-lg">
+                    <h2 className="text-[34px] sm:text-[42px] lg:text-[48px] font-bold text-white tracking-tight leading-[1.08] mb-3 drop-shadow-sm">
+                        Run a <span className="text-[#22c55e]">Smarter</span><br />
+                        Restaurant
+                    </h2>
+                    
+                    <p className="text-white/90 text-[15px] sm:text-[17px] font-medium leading-relaxed max-w-sm mb-4 drop-shadow-sm">
+                        Manage orders, track sales, and grow your business.
+                    </p>
+
+                    {/* Green Accent Underline Bar */}
+                    <div className="w-12 h-1 bg-[#22c55e] rounded-full shadow-sm" />
                 </div>
             </div>
+
         </div>
     );
 }
