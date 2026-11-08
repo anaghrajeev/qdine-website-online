@@ -229,19 +229,19 @@ export default function OnboardingPage() {
                     </svg>
                 </div>
 
-                {/* Overlay Text Content - 2 wide lines, lifted up with generous breathing room */}
-                <div className="relative z-30 lg:pl-44 xl:pl-52 2xl:pl-60 pr-8 max-w-md xl:max-w-lg">
-                    <h2 className="text-[28px] sm:text-[32px] lg:text-[34px] xl:text-[38px] font-bold text-white tracking-tight leading-[1.12] mb-2.5 drop-shadow-sm">
+                {/* Overlay Text Content - 2 wide lines, bold & prominent with generous breathing room */}
+                <div className="relative z-30 lg:pl-44 xl:pl-52 2xl:pl-60 pr-8 max-w-lg xl:max-w-xl">
+                    <h2 className="text-[34px] sm:text-[38px] lg:text-[42px] xl:text-[48px] 2xl:text-[52px] font-bold text-white tracking-tight leading-[1.08] mb-3.5 drop-shadow-sm">
                         <span className="whitespace-nowrap">Run a <span className="text-[#22c55e]">Smarter</span></span><br />
                         <span>Restaurant</span>
                     </h2>
                     
-                    <p className="text-white/85 text-[14px] sm:text-[15px] font-normal leading-relaxed max-w-xs mb-3.5 drop-shadow-sm">
+                    <p className="text-white/90 text-[15px] sm:text-[16px] xl:text-[18px] font-medium leading-relaxed max-w-sm xl:max-w-md mb-4 drop-shadow-sm">
                         Manage orders, track sales, and grow your business.
                     </p>
 
                     {/* Green Accent Underline Bar */}
-                    <div className="w-8 h-1 bg-[#22c55e] rounded-full shadow-sm" />
+                    <div className="w-12 h-1 bg-[#22c55e] rounded-full shadow-sm" />
                 </div>
             </div>
 
