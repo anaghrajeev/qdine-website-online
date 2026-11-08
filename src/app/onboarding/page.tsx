@@ -60,13 +60,26 @@ export default function OnboardingPage() {
     };
 
     return (
-        <div className="min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] pt-16 lg:pt-20 flex flex-col lg:flex-row bg-white overflow-hidden">
+        <div className="min-h-[100dvh] lg:h-screen lg:max-h-screen flex flex-col lg:flex-row bg-white overflow-x-hidden lg:overflow-hidden select-none">
             
             {/* ========================================================= */}
-            {/* LEFT PANEL: Form Area                                      */}
+            {/* LEFT PANEL: The Signup Form                                */}
             {/* ========================================================= */}
-            <div className="w-full lg:w-[46%] xl:w-[44%] flex items-center justify-center p-6 sm:p-10 lg:p-12 xl:p-16 relative z-10 bg-white">
-                <div className="w-full max-w-md my-auto py-4 sm:py-6">
+            <div className="w-full lg:w-[46%] xl:w-[44%] h-full flex flex-col justify-center px-6 sm:px-12 lg:px-14 xl:px-20 py-8 sm:py-12 relative z-10 bg-white overflow-y-auto">
+                
+                {/* Subtle Back Link */}
+                <div className="mb-6 sm:mb-8">
+                    <Link 
+                        href="/" 
+                        className="inline-flex items-center gap-1.5 text-[13px] text-gray-400 hover:text-[#1a1a1a] transition-colors font-medium group"
+                    >
+                        <span className="material-symbols-outlined text-[17px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                        <span>Back</span>
+                    </Link>
+                </div>
+
+                {/* Form Wrapper */}
+                <div className="w-full max-w-md mx-auto lg:mx-0">
                     <h1 className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] font-bold text-[#1a1a1a] tracking-tight mb-2 leading-tight">
                         Get Started Free
                     </h1>
@@ -91,7 +104,7 @@ export default function OnboardingPage() {
                                 id="name"
                                 type="text"
                                 required
-                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[14px] placeholder:text-gray-400"
+                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
                                 placeholder="The Coastal Bistro"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -107,7 +120,7 @@ export default function OnboardingPage() {
                                 id="email"
                                 type="email"
                                 required
-                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[14px] placeholder:text-gray-400"
+                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
                                 placeholder="owner@gmail.com"
                                 value={formData.admin_email}
                                 onChange={(e) => setFormData({ ...formData, admin_email: e.target.value })}
@@ -125,7 +138,7 @@ export default function OnboardingPage() {
                                     type={showPassword ? "text" : "password"}
                                     required
                                     minLength={6}
-                                    className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[14px] placeholder:text-gray-400 pr-11 tracking-wider"
+                                    className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400 pr-11 tracking-wider"
                                     placeholder="••••••••••••"
                                     value={formData.admin_password}
                                     onChange={(e) => setFormData({ ...formData, admin_password: e.target.value })}
@@ -151,7 +164,7 @@ export default function OnboardingPage() {
                             <input
                                 id="phone"
                                 type="tel"
-                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[14px] placeholder:text-gray-400"
+                                className="w-full px-4 py-3 rounded-xl bg-gray-50/70 border border-gray-200/90 focus:bg-white focus:border-[#0a714e] focus:ring-2 focus:ring-[#0a714e]/10 outline-none transition-all text-[#1a1a1a] text-[16px] sm:text-[14px] placeholder:text-gray-400"
                                 placeholder="+91 98765 43210"
                                 value={formData.phone}
                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -182,9 +195,10 @@ export default function OnboardingPage() {
             </div>
 
             {/* ========================================================= */}
-            {/* RIGHT PANEL: Angular Green Chevron + Hero Image           */}
+            {/* RIGHT PANEL: Angular Chevron + Lifestyle Image (Desktop)   */}
+            {/* Omitted completely on mobile for clean Apple-like focus   */}
             {/* ========================================================= */}
-            <div className="relative w-full lg:w-[54%] xl:w-[56%] min-h-[420px] lg:min-h-full flex items-center overflow-hidden bg-[#0a714e]">
+            <div className="hidden lg:flex relative w-full lg:w-[54%] xl:w-[56%] h-full items-center overflow-hidden bg-[#0a714e]">
                 
                 {/* Background Image: Lady Manager & POS Laptop */}
                 <Image
@@ -192,25 +206,25 @@ export default function OnboardingPage() {
                     alt="Run a Smarter Restaurant with Qdine"
                     fill
                     priority
-                    sizes="(max-width: 1024px) 100vw, 55vw"
+                    sizes="(max-width: 1024px) 0vw, 55vw"
                     className="object-cover object-[70%_center]"
                 />
 
-                {/* Dark Vignette / Gradient Scrim for crystal clear readability */}
+                {/* Dark Vignette / Gradient Scrim for crisp text contrast */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent z-10 pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10 pointer-events-none" />
 
-                {/* Angular Green Chevron Divider (Desktop Only) */}
-                <div className="hidden lg:block absolute inset-y-0 left-0 w-28 xl:w-36 z-20 pointer-events-none select-none">
+                {/* Angular Green Chevron Divider */}
+                <div className="absolute inset-y-0 left-0 w-28 xl:w-36 z-20 pointer-events-none select-none">
                     <svg 
                         viewBox="0 0 120 1000" 
                         preserveAspectRatio="none" 
                         className="w-full h-full"
                     >
-                        {/* White polygon extending the left form area into an angled point */}
+                        {/* White polygon matching the left form background */}
                         <polygon points="0,0 24,0 72,460 0,1000" fill="#ffffff" />
                         
-                        {/* Green chevron band running alongside the white edge */}
+                        {/* Green chevron band running alongside */}
                         <polygon points="24,0 56,0 120,460 38,1000 0,1000 72,460" fill="#0a714e" />
                     </svg>
                 </div>

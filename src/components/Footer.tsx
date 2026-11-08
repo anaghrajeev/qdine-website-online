@@ -1,7 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+    const pathname = usePathname();
+
+    if (pathname === '/onboarding') {
+        return null;
+    }
+
     return (
         <footer className="bg-[#fdfaf6] border-t border-gray-200/50 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8">
@@ -37,7 +46,7 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold text-[#1a1a1a] text-[13px] mb-4 uppercase tracking-wider">Company</h4>
                         <ul className="space-y-3">
-                            <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="#">About Us</Link></li>
+                            <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="/mission">About Us</Link></li>
                             <li><Link className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="#">Careers</Link></li>
                             <li><a className="text-gray-600 hover:text-[#1a1a1a] transition-colors text-[14px] font-medium" href="mailto:support@getqdine.com">support@getqdine.com</a></li>
                         </ul>
