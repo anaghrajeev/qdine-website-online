@@ -9,7 +9,7 @@ export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const pathname = usePathname();
 
-    if (pathname === '/onboarding') {
+    if (pathname === '/onboarding' || pathname === '/login') {
         return null;
     }
 
