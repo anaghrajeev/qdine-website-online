@@ -32,29 +32,48 @@ export default function LoginPage() {
             if (res.ok && data.success !== false) {
                 console.log("Login success response:", data);
                 
-                if (data.token) {
-                    localStorage.setItem('admin_token', data.token);
+                const token = data.token || data?.data?.token;
+
+                if (token) {
+                    localStorage.setItem('admin_token', token);
                     if (data.user) {
                         localStorage.setItem('admin_user', JSON.stringify(data.user));
                     }
                 }
                 
-                const portalUrl = data?.data?.urls?.admin_portal || data?.redirect_url || data?.url;
-                
-                if (portalUrl) {
-                    if (portalUrl.startsWith('http')) {
-                        window.location.href = portalUrl;
+                const rawPortalUrl = data?.data?.urls?.admin_portal || data?.redirect_url || data?.url;
+                let targetUrl = '';
+
+                if (rawPortalUrl) {
+                    if (rawPortalUrl.startsWith('http')) {
+                        targetUrl = rawPortalUrl;
                     } else {
-                        const path = portalUrl.startsWith('/') ? portalUrl : `/${portalUrl}`;
-                        window.location.href = `https://test.getqdine.com${path}`;
+                        const path = rawPortalUrl.startsWith('/') ? rawPortalUrl : `/${rawPortalUrl}`;
+                        targetUrl = `https://test.getqdine.com${path}`;
                     }
                 } else {
                     const slug = data?.data?.slug || data?.slug || data?.user?.restaurant_slug;
                     if (slug) {
-                        window.location.href = `https://test.getqdine.com/${slug}/admin/orders`;
+                        targetUrl = `https://test.getqdine.com/${slug}/admin/orders`;
                     } else {
-                        window.location.href = 'https://test.getqdine.com/admin';
+                        targetUrl = 'https://test.getqdine.com/admin';
                     }
+                }
+
+                // Option 2: Token Bridge / URL Handshake
+                // Appends token to the portal URL so test.getqdine.com authenticates cross-domain
+                if (token && targetUrl) {
+                    try {
+                        const urlObj = new URL(targetUrl);
+                        urlObj.searchParams.set('token', token);
+                        urlObj.searchParams.set('auth_token', token);
+                        window.location.href = urlObj.toString();
+                    } catch {
+                        const separator = targetUrl.includes('?') ? '&' : '?';
+                        window.location.href = `${targetUrl}${separator}token=${encodeURIComponent(token)}&auth_token=${encodeURIComponent(token)}`;
+                    }
+                } else {
+                    window.location.href = targetUrl || 'https://test.getqdine.com/admin';
                 }
             } else {
                 setError(data.error || data.message || 'Login failed. Please check your credentials.');

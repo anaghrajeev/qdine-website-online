@@ -18,10 +18,6 @@ export async function POST(request: Request) {
         return NextResponse.json(data, { status: response.status });
     }
 
-    // Temporarily log the success payload to a file so we can inspect its schema
-    const fs = require('fs');
-    fs.writeFileSync('./scratch/login_success_payload.json', JSON.stringify(data, null, 2));
-
     return NextResponse.json(data, { status: 200 });
   } catch (error: any) {
     console.error('Login proxy error:', error);

@@ -116,22 +116,38 @@ export default function OnboardingPage() {
             const data = await res.json();
 
             if (res.ok && data.success !== false) {
-                const portalUrl = data?.data?.urls?.admin_portal || data?.redirect_url || data?.url;
+                const token = data.token || data?.data?.token;
+                const rawPortalUrl = data?.data?.urls?.admin_portal || data?.redirect_url || data?.url;
+                let targetUrl = '';
                 
-                if (portalUrl) {
-                    if (portalUrl.startsWith('http')) {
-                        window.location.href = portalUrl;
+                if (rawPortalUrl) {
+                    if (rawPortalUrl.startsWith('http')) {
+                        targetUrl = rawPortalUrl;
                     } else {
-                        const path = portalUrl.startsWith('/') ? portalUrl : `/${portalUrl}`;
-                        window.location.href = `https://test.getqdine.com${path}`;
+                        const path = rawPortalUrl.startsWith('/') ? rawPortalUrl : `/${rawPortalUrl}`;
+                        targetUrl = `https://test.getqdine.com${path}`;
                     }
                 } else {
                     const slug = data?.data?.restaurant?.slug || data?.data?.slug || data?.slug;
                     if (slug) {
-                        window.location.href = `https://test.getqdine.com/${slug}/admin/login`;
+                        targetUrl = `https://test.getqdine.com/${slug}/admin/login`;
                     } else {
-                        window.location.href = 'https://test.getqdine.com/admin';
+                        targetUrl = 'https://test.getqdine.com/admin';
                     }
+                }
+
+                if (token && targetUrl) {
+                    try {
+                        const urlObj = new URL(targetUrl);
+                        urlObj.searchParams.set('token', token);
+                        urlObj.searchParams.set('auth_token', token);
+                        window.location.href = urlObj.toString();
+                    } catch {
+                        const separator = targetUrl.includes('?') ? '&' : '?';
+                        window.location.href = `${targetUrl}${separator}token=${encodeURIComponent(token)}&auth_token=${encodeURIComponent(token)}`;
+                    }
+                } else {
+                    window.location.href = targetUrl;
                 }
             } else {
                 setError(data.error || data.message || 'Failed to create restaurant');
